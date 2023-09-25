@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import GMap from "../GoogleMaps/gMap";
 
 interface ProductType {
   id: number;
@@ -89,8 +90,10 @@ const footer = () => {
         </div>
 
         {/* CLOUMN-2/3/4 */}
-
-        {products.map((product) => (
+        <div className="sm:col-span-6 col-span-12 ">
+          <GMap />
+        </div>
+        {/* {products.map((product) => (
           <div key={product.id} className="sm:col-span-2">
             <p className="text-black text-xl font-semibold mb-9">
               {product.section}
@@ -108,7 +111,7 @@ const footer = () => {
               ))}
             </ul>
           </div>
-        ))}
+        ))} */}
       </div>
 
       {/* All Rights Reserved */}

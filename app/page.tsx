@@ -13,7 +13,7 @@ export default function Home() {
       <Features />
       <Rooms />
       <Cook />
-      <Expert />
+      {/* <Expert /> */}
       <Gallery />
       {/* <Newsletter /> */}
     </main>

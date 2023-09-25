@@ -41,11 +41,11 @@ const cardData: cardDataType[] = [
 const Work = () => {
   return (
     <div>
-      <div className="mx-auto max-w-7xl px-6 " id="about-section">
-        <div className="pt-40">
+      <div className="mx-auto max-w-7xl px-6" id="about-section">
+        <div className="sm:pt-40 pt-96">
           <div className="text-center mb-14">
             <Fade
-              direction={"up"}
+              direction={"down"}
               delay={400}
               cascade
               damping={1e-1}
@@ -69,7 +69,7 @@ const Work = () => {
           </div>
           <div className="text-center mb-4">
             <Fade
-              direction={"up"}
+              direction={"down"}
               delay={800}
               cascade
               damping={1e-1}
@@ -102,9 +102,17 @@ const Work = () => {
             </Fade>
           </div>
           <div className="text-center mb-4">
-            <button className="border w-full md:w-auto mt-5 md:mt-0 border-pink justify-center rounded-full text-xl font-medium items-center py-3 px-5 text-pink hover:text-white hover:bg-pink">
-              <Link href="/aboutus">Read More</Link>
-            </button>
+            <Fade
+              direction={"up"}
+              delay={800}
+              cascade
+              damping={1e-1}
+              triggerOnce={true}
+            >
+              <button className="border w-full md:w-auto mt-5 md:mt-0 border-pink justify-center rounded-full text-xl font-medium items-center py-3 px-5 text-pink hover:text-white hover:bg-pink">
+                <Link href="/aboutus">Read More</Link>
+              </button>
+            </Fade>
           </div>
         </div>
 
