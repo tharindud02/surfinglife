@@ -89,7 +89,7 @@ const Work = () => {
               triggerOnce={true}
             >
               <p className="text-lg lg:text-lg font-thin text-grey">
-                Discover Surfing Life Guest House, a cozy beachfront retreat for
+                {` Discover Surfing Life Guest House, a cozy beachfront retreat for
                 surf enthusiasts and travelers seeking an authentic coastal
                 experience. Established in 2007, we've earned TripAdvisor's Best
                 Budget Hotel award in 2015 and 2016. Our homey guest house
@@ -97,7 +97,7 @@ const Work = () => {
                 hammocks for lazy afternoons. While our mattresses are modest,
                 our bright red sheets are spotless. Owner Eric rents surfboards
                 and provides storage for those with their own. Join us for a
-                budget-friendly, wave-riding adventure!
+                budget-friendly, wave-riding adventure!`}
               </p>
             </Fade>
           </div>

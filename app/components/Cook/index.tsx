@@ -56,7 +56,7 @@ const Cook = () => {
               triggerOnce={true}
             >
               <p className="text-grey md:text-lg font-normal mb-10 text-start mt-2">
-                At Surfing Life Guest House, our restaurant isn't just a dining
+                {` At Surfing Life Guest House, our restaurant isn't just a dining
                 experience; it's a journey of taste and comfort. From an array
                 of diverse dishes, including homemade favorites and
                 international delights, to expertly crafted cocktails, our
@@ -65,7 +65,7 @@ const Cook = () => {
                 toasting with a cocktail, our restaurant is your seaside
                 sanctuary for unforgettable dining moments. Join us for a
                 culinary adventure like no other, where every bite and sip is
-                seasoned with the spirit of the coast.
+                seasoned with the spirit of the coast.`}
               </p>
               <p className="text-grey md:text-lg font-bold mb-10 text-start mt-1">
                 Come hungry, leave happy, and let the taste of Surfing Life
