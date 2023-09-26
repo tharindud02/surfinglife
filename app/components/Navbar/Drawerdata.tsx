@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Contactusform from "./Contactus";
+import Image from "next/image";
 
 interface NavigationItem {
   name: string;
@@ -43,12 +44,35 @@ const Data = () => {
               </Link>
             ))}
             <div className="mt-4"></div>
-            <button className="flex justify-center text-base w-full font-medium rounded-full bg-bgpink text-pink py-3 px-4 lg:px-8 navbutton hover:text-white">
-              Sign in
-            </button>
-            <button className="flex justify-center text-base w-full font-medium rounded-full bg-transparent border border-bgpink text-pink py-3 px-4 lg:px-8 navbutton hover:text-white hover:bg-pink">
-              Contact us
-            </button>
+            <div className="flex items-center gap-2">
+              <Link
+                href="https://wa.me/+94777401667?text=Hi%20Eric!%20I'm%20interested%20in%20booking%20a%20room%20for%20[NUMBER_OF_NIGHTS]%20nights%20for%20[NUMBER_OF_PEOPLE]%20people.%20I'm%20also%20interested%20in%20learning%20more%20about%20your%20rates%20and%20availability."
+                target="_blank"
+              >
+                <button className="w-8 h-8 rounded-full bg-green-500 flex justify-center items-center hover:scale-110 transition-transform duration-150">
+                  <Image
+                    src="/images/Navbar/whatsapp.png"
+                    alt="whatsapp-image"
+                    width={48}
+                    height={48}
+                  />
+                </button>
+              </Link>
+
+              <Link
+                href="mailto:surfinglifeguest@gmail.com?subject=Booking%20Inquiry&body=Dear%20Eric,%20I%20am%20writing%20to%20inquire%20about%20booking%20your%20Surfinglife%20Guest%20House%20for%20[date(s)%20and%20number%20of%20guests)].%20I%20am%20very%20interested%20in%20staying%20with%20you,%20and%20I%20would%20be%20grateful%20if%20you%20could%20provide%20me%20with%20more%20information%20on%20your%20availability,%20pricing,%20and%20booking%20process.%20Thank%20you."
+                target="_blank"
+              >
+                <button className="w-8 h-8 rounded-full bg-blue-500 flex justify-center items-center hover:scale-110 transition-transform duration-150">
+                  <Image
+                    src="/images/Navbar/email_1.png"
+                    alt="email-image"
+                    width={48}
+                    height={48}
+                  />
+                </button>
+              </Link>
+            </div>
 
             {/* <Contactusform /> */}
           </div>
