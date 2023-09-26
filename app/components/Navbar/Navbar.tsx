@@ -7,6 +7,7 @@ import Drawerdata from "./Drawerdata";
 import Signindialog from "./Signindialog";
 import Image from "next/image";
 import Whatsapp from "./Whatsapp";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 interface NavigationItem {
   name: string;
@@ -47,11 +48,11 @@ const Navbar = () => {
                 />
                 <Link
                   href="/"
-                  className="text-2xl font-semibold text-black ml-4"
+                  className="text-xl font-semibold text-black ml-4 pt-5"
                 >
                   Surfing Life
                   <br />
-                  <p className="text-lg font-semibold mb-5 text-lightgrey">
+                  <p className="text-sm font-semibold mb-5 text-lightgrey">
                     Guest House & Restaurant
                   </p>
                 </Link>
@@ -98,17 +99,48 @@ const Navbar = () => {
               </div>
               <div className="gap-6 hidden lg:flex">
                 <div className="flex items-center gap-2">
-                  <Image
-                    src={"/images/Navbar/phone.svg"}
-                    alt="phone-image"
-                    width={19}
-                    height={19}
-                  />
-
-                  <Link href="tel:+94777401667">
-                    <p className="text-lg font-medium">+94 777 401 667 </p>
+                  <Link
+                    href="https://wa.me/+94777401667?text=Hi%20Eric!%20I'm%20interested%20in%20booking%20a%20room%20for%20[NUMBER_OF_NIGHTS]%20nights%20for%20[NUMBER_OF_PEOPLE]%20people.%20I'm%20also%20interested%20in%20learning%20more%20about%20your%20rates%20and%20availability."
+                    target="_blank"
+                  >
+                    <button
+                      data-tooltip-id="whatsapp"
+                      className="w-12 h-12 rounded-full bg-green-500 flex justify-center items-center hover:scale-110 transition-transform duration-150"
+                    >
+                      <img
+                        src="/images/Navbar/whatsapp.png"
+                        alt="whatsapp-image"
+                        width={48}
+                        height={48}
+                      />
+                    </button>
                   </Link>
+
+                  <Link
+                    href="mailto:surfinglifeguest@gmail.com?subject=Booking%20Inquiry&body=Dear%20Eric,%20I%20am%20writing%20to%20inquire%20about%20booking%20your%20Surfinglife%20Guest%20House%20for%20[date(s)%20and%20number%20of%20guests)].%20I%20am%20very%20interested%20in%20staying%20with%20you,%20and%20I%20would%20be%20grateful%20if%20you%20could%20provide%20me%20with%20more%20information%20on%20your%20availability,%20pricing,%20and%20booking%20process.%20Thank%20you."
+                    target="_blank"
+                  >
+                    <button
+                      data-tooltip-id="email"
+                      className="w-12 h-12 rounded-full bg-blue-500 flex justify-center items-center hover:scale-110 transition-transform duration-150"
+                    >
+                      <img
+                        src="/images/Navbar/email_1.png"
+                        alt="email-image"
+                        width={48}
+                        height={48}
+                      />
+                    </button>
+                  </Link>
+
+                  <ReactTooltip
+                    id="whatsapp"
+                    place="bottom"
+                    content="Call Us"
+                  />
+                  <ReactTooltip id="email" place="bottom" content="Email Us" />
                 </div>
+
                 {/* <button className='flex justify-end text-xl font-medium bg-bgpink text-pink py-4 px-4 lg:px-8 navbutton rounded-full hover:text-black'>Sign in</button> */}
                 {/* <Signindialog /> */}
                 {/* <Whatsapp /> */}

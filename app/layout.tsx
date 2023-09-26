@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar/index";
 import Footer from "./components/Footer/Footer";
+import WhatsappIcon from "./components/WhatsappIcon/whatsappIcon";
 
 export const metadata = {
   title: "Surfing Life Guest House & Restaurant",
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <WhatsappIcon />
         <Footer />
       </body>
     </html>
