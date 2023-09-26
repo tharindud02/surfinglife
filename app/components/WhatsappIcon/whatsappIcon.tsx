@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -10,7 +11,7 @@ export default function WhatsappIcon() {
           target="_blank"
         >
           <button className="w-24 h-24 rounded-full bg-green-500 flex justify-center items-center hover:scale-110 transition-transform duration-150">
-            <img
+            <Image
               src="/images/Navbar/whatsapp.png"
               alt="whatsapp-image"
               width={64}

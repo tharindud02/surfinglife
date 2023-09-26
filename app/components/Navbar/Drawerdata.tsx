@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Contactusform from "./Contactus";
+import Image from "next/image";
 
 interface NavigationItem {
   name: string;
@@ -49,7 +50,7 @@ const Data = () => {
                 target="_blank"
               >
                 <button className="w-8 h-8 rounded-full bg-green-500 flex justify-center items-center hover:scale-110 transition-transform duration-150">
-                  <img
+                  <Image
                     src="/images/Navbar/whatsapp.png"
                     alt="whatsapp-image"
                     width={48}
@@ -63,7 +64,7 @@ const Data = () => {
                 target="_blank"
               >
                 <button className="w-8 h-8 rounded-full bg-blue-500 flex justify-center items-center hover:scale-110 transition-transform duration-150">
-                  <img
+                  <Image
                     src="/images/Navbar/email_1.png"
                     alt="email-image"
                     width={48}

@@ -124,7 +124,7 @@ const Navbar = () => {
                       data-tooltip-id="email"
                       className="w-12 h-12 rounded-full bg-blue-500 flex justify-center items-center hover:scale-110 transition-transform duration-150"
                     >
-                      <img
+                      <Image
                         src="/images/Navbar/email_1.png"
                         alt="email-image"
                         width={48}
