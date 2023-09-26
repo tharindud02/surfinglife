@@ -6,7 +6,7 @@ import WhatsappIcon from "./components/WhatsappIcon/whatsappIcon";
 export const metadata = {
   title: "Surfing Life Guest House & Restaurant",
   description:
-    "Best Restaurant with Varied Food Options and Comfortable Budget Rooms",
+    "Looking for the perfect place to stay in Weligama, Sri Lanka? Surfing Life is a guest house and restaurant located close to Coconut Beach, with easy access to some of the best surfing spots in the world. We offer comfortable accommodations, a delicious restaurant, and a friendly staff that is always happy to help. Book your stay today and experience the best that Weligama has to offer!",
 };
 
 export default function RootLayout({
