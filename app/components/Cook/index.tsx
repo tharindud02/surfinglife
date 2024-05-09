@@ -8,7 +8,7 @@ const Cook = () => {
       <div className="mx-auto max-w-7xl lg:pt-20 sm:pb-24 px-6">
         <div className="absolute right-0 bottom-[-18%] hidden lg:block">
           <Image
-            src={"/images/Cook/burger.png"}
+            src={"/images/Cook/burger-1.png"}
             alt="burger-image"
             width={463}
             height={622}
@@ -18,7 +18,7 @@ const Cook = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 my-16 space-x-5">
           <div className="col-span-6 flex justify-start">
             <Image
-              src="/images/Cook/cook.png"
+              src="/images/Cook/Salad-1.png"
               alt="nothing"
               width={636}
               height={808}
