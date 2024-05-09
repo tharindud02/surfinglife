@@ -41,7 +41,7 @@ const Navbar = () => {
 
               <div className="flex sm:hidden flex-shrink-0 items-center border-right">
                 <Image
-                  src="/images/Logo/Logo.png"
+                  src="/images/Logo/logo.png"
                   alt="logo"
                   width={50}
                   height={50}
@@ -59,7 +59,7 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:flex flex-shrink-0 items-center border-right">
                 <Image
-                  src="/images/Logo/Logo.png"
+                  src="/images/Logo/logo.png"
                   alt="logo"
                   width={100}
                   height={100}

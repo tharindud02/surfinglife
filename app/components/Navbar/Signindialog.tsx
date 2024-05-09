@@ -60,7 +60,7 @@ const Signin = () => {
                       <div>
                         <div className="flex items-center justify-center">
                           <Image
-                            src="/images/Logo/LogoB.png"
+                            src="/images/Logo/logo.png"
                             alt="logo"
                             width={46}
                             height={46}
