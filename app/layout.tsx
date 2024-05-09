@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar/index";
 import Footer from "./components/Footer/Footer";
 import WhatsappIcon from "./components/WhatsappIcon/whatsappIcon";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 // export const metadata = {
 //   title: "Surfing Life Guest House & Restaurant",
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Analytics />
+      <SpeedInsights />
       <body>
         <Navbar />
         {children}
