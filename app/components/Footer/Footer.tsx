@@ -25,11 +25,6 @@ const socialLinks: socialLinks[] = [
     link: "https://instagram.com",
     width: 14,
   },
-  {
-    imgSrc: "/images/Footer/twitter.svg",
-    link: "https://twitter.com",
-    width: 14,
-  },
 ];
 
 const products: ProductType[] = [
@@ -118,7 +113,7 @@ const footer = () => {
 
       <div className="py-10 md:flex items-center justify-between border-t border-t-bordertop">
         <h4 className="text-darkgrey text-sm text-center md:text-start font-normal">
-          @2023 - Surfing Life. All Rights Reserved.
+          @2024 - Surfing Life. All Rights Reserved.
         </h4>
         <div className="flex gap-5 mt-5 md:mt-0 justify-center md:justify-start">
           <h4 className="text-darkgrey text-sm font-normal">

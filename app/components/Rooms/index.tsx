@@ -33,7 +33,7 @@ const Rooms = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-12 my-16 sm:space-x-6 space-y-6 md:space-y-0 px-6">
-          <div className="col-span-4 flex justify-center overflow-hidden rounded-3xl">
+          <div className="col-span-3 flex justify-center overflow-hidden rounded-3xl">
             <div className="image-container">
               <Image
                 src="/images/Rooms/budget1.jpg"
@@ -55,10 +55,10 @@ const Rooms = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-4 flex justify-center overflow-hidden rounded-3xl">
+          <div className="col-span-3 flex justify-center overflow-hidden rounded-3xl">
             <div className="image-container">
               <Image
-                src="/images/Rooms/couple1.jpg"
+                src="/images/Rooms/triple-room-1.jpg"
                 alt="Double Delight"
                 width={1000}
                 height={805}
@@ -78,10 +78,32 @@ const Rooms = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-4 flex justify-center overflow-hidden rounded-3xl">
+          <div className="col-span-3 flex justify-center overflow-hidden rounded-3xl">
             <div className="image-container">
               <Image
-                src="/images/Rooms/triple1.jpg"
+                src="/images/Rooms/cabana-night.jpg"
+                alt="Triple Treat"
+                width={1000}
+                height={805}
+                className="inner-img"
+              />
+              <div className="image-overlay"></div>
+              <div className="image-text text-white text-center">
+                <p className="text-2xl lg:text-4xl font-bold ">Cabana</p>
+                <p className="text-sm lg:text-normal font-thin py-4">
+                  Create lasting memories with your loved ones with our Family
+                  Fun Package.
+                </p>
+                <button className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink">
+                  <Link href="/aboutus">Explore Rooms</Link>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="col-span-3 flex justify-center overflow-hidden rounded-3xl">
+            <div className="image-container">
+              <Image
+                src="/images/Rooms/top-garden.jpg"
                 alt="Triple Treat"
                 width={1000}
                 height={805}

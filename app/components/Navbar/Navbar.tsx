@@ -41,10 +41,10 @@ const Navbar = () => {
 
               <div className="flex sm:hidden flex-shrink-0 items-center border-right">
                 <Image
-                  src="/images/Logo/LogoB.png"
+                  src="/images/Logo/Logo.png"
                   alt="logo"
-                  width={36}
-                  height={36}
+                  width={50}
+                  height={50}
                 />
                 <Link
                   href="/"
@@ -59,10 +59,10 @@ const Navbar = () => {
               </div>
               <div className="hidden sm:flex flex-shrink-0 items-center border-right">
                 <Image
-                  src="/images/Logo/LogoB.png"
+                  src="/images/Logo/Logo.png"
                   alt="logo"
-                  width={56}
-                  height={56}
+                  width={100}
+                  height={100}
                 />
                 <Link
                   href="/"
