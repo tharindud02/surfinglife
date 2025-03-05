@@ -8,6 +8,7 @@ import Signindialog from "./Signindialog";
 import Image from "next/image";
 import Whatsapp from "./Whatsapp";
 import { Tooltip as ReactTooltip } from "react-tooltip";
+import BookingForm from "../Booking/BookingForm";
 
 interface NavigationItem {
   name: string;
@@ -30,6 +31,15 @@ function classNames(...classes: string[]) {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [showBooking, setShowBooking] = React.useState(false);
+
+  const handleBookNow = () => {
+    setShowBooking(true);
+  };
+
+  const handleCloseBooking = () => {
+    setShowBooking(false);
+  };
 
   return (
     <Disclosure as="nav" className="navbar">
@@ -38,7 +48,6 @@ const Navbar = () => {
           <div className="relative flex h-12 sm:h-20 items-center">
             <div className="flex flex-1 items-center sm:justify-between">
               {/* LOGO */}
-
               <div className="flex sm:hidden flex-shrink-0 items-center border-right">
                 <Image
                   src="/images/Logo/logo.png"
@@ -77,7 +86,6 @@ const Navbar = () => {
               </div>
 
               {/* LINKS */}
-
               <div className="hidden lg:flex items-center border-right ">
                 <div className="flex justify-end space-x-4">
                   {navigation.map((item) => (
@@ -99,7 +107,7 @@ const Navbar = () => {
               </div>
               <div className="gap-6 hidden lg:flex">
                 <div className="flex items-center gap-2">
-                  <Link
+                  {/* <Link
                     href="https://wa.me/+94777401667?text=Hi%20Eric!%20I'm%20interested%20in%20booking%20a%20room%20for%20[NUMBER_OF_NIGHTS]%20nights%20for%20[NUMBER_OF_PEOPLE]%20people.%20I'm%20also%20interested%20in%20learning%20more%20about%20your%20rates%20and%20availability."
                     target="_blank"
                   >
@@ -114,9 +122,9 @@ const Navbar = () => {
                         height={48}
                       />
                     </button>
-                  </Link>
+                  </Link> */}
 
-                  <Link
+                  {/* <Link
                     href="mailto:surfinglifeguest@gmail.com?subject=Booking%20Inquiry&body=Dear%20Eric,%20I%20am%20writing%20to%20inquire%20about%20booking%20your%20Surfinglife%20Guest%20House%20for%20[date(s)%20and%20number%20of%20guests)].%20I%20am%20very%20interested%20in%20staying%20with%20you,%20and%20I%20would%20be%20grateful%20if%20you%20could%20provide%20me%20with%20more%20information%20on%20your%20availability,%20pricing,%20and%20booking%20process.%20Thank%20you."
                     target="_blank"
                   >
@@ -131,7 +139,7 @@ const Navbar = () => {
                         height={48}
                       />
                     </button>
-                  </Link>
+                  </Link> */}
 
                   <ReactTooltip
                     id="whatsapp"
@@ -141,16 +149,17 @@ const Navbar = () => {
                   <ReactTooltip id="email" place="bottom" content="Email Us" />
                 </div>
 
-                {/* <button className='flex justify-end text-xl font-medium bg-bgpink text-pink py-4 px-4 lg:px-8 navbutton rounded-full hover:text-black'>Sign in</button> */}
-                {/* <Signindialog /> */}
-                {/* <Whatsapp /> */}
+                <button 
+                  onClick={handleBookNow}
+                  className='flex justify-end text-sm font-medium bg-pink text-white py-4 px-4 lg:px-8 navbutton rounded-full hover:bg-pink/40 transition-all duration-300 ease-in-out'
+                >
+                  Book Now
+                </button>
               </div>
             </div>
 
             {/* DRAWER FOR MOBILE VIEW */}
-
             {/* DRAWER ICON */}
-
             <div className="block lg:hidden">
               <Bars3Icon
                 className="block h-6 w-6"
@@ -160,12 +169,19 @@ const Navbar = () => {
             </div>
 
             {/* DRAWER LINKS DATA */}
-
             <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
               <Drawerdata />
             </Drawer>
           </div>
         </div>
+
+        {/* Booking Form Modal */}
+        {showBooking && (
+          <BookingForm
+            roomType="Room"
+            onClose={handleCloseBooking}
+          />
+        )}
       </>
     </Disclosure>
   );

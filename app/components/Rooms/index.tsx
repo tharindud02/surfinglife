@@ -2,8 +2,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Fade } from "react-awesome-reveal";
+import { useState } from "react";
+import BookingForm from "../Booking/BookingForm";
 
 const Rooms = () => {
+  const [selectedRoom, setSelectedRoom] = useState<string | null>(null);
+
+  const handleBookRoom = (roomType: string) => {
+    setSelectedRoom(roomType);
+  };
+
+  const handleCloseBooking = () => {
+    setSelectedRoom(null);
+  };
+
   return (
     <div className="relative pt-16" id="rooms-section">
       <div className="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 mt-20 md:pt-24">
@@ -49,8 +61,11 @@ const Rooms = () => {
                   Embrace the surf lifestyle with our Surf & Sleep Package,
                   designed for budget-conscious travelers.
                 </p>
-                <button className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink">
-                  <Link href="/aboutus">Explore Rooms</Link>
+                <button 
+                  onClick={() => handleBookRoom("Budget Bliss")}
+                  className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink"
+                >
+                  Book Now
                 </button>
               </div>
             </div>
@@ -72,8 +87,11 @@ const Rooms = () => {
                 <p className="text-sm lg:text-normal font-thin py-4">
                   Rekindle romance by the sea with our Couples Getaway Package.
                 </p>
-                <button className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink">
-                  <Link href="/aboutus">Explore Rooms</Link>
+                <button 
+                  onClick={() => handleBookRoom("Double Delight")}
+                  className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink"
+                >
+                  Book Now
                 </button>
               </div>
             </div>
@@ -82,7 +100,7 @@ const Rooms = () => {
             <div className="image-container">
               <Image
                 src="/images/Rooms/cabana-night.jpg"
-                alt="Triple Treat"
+                alt="Cabana"
                 width={1000}
                 height={805}
                 className="inner-img"
@@ -94,8 +112,11 @@ const Rooms = () => {
                   Create lasting memories with your loved ones with our Family
                   Fun Package.
                 </p>
-                <button className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink">
-                  <Link href="/aboutus">Explore Rooms</Link>
+                <button 
+                  onClick={() => handleBookRoom("Cabana")}
+                  className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink"
+                >
+                  Book Now
                 </button>
               </div>
             </div>
@@ -116,14 +137,24 @@ const Rooms = () => {
                   Create lasting memories with your loved ones with our Family
                   Fun Package.
                 </p>
-                <button className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink">
-                  <Link href="/aboutus">Explore Rooms</Link>
+                <button 
+                  onClick={() => handleBookRoom("Triple Treat")}
+                  className="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink"
+                >
+                  Book Now
                 </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {selectedRoom && (
+        <BookingForm
+          roomType={selectedRoom}
+          onClose={handleCloseBooking}
+        />
+      )}
     </div>
   );
 };
