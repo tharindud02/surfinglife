@@ -6,7 +6,10 @@ interface BookingConfirmationProps {
   onClose: () => void;
 }
 
-const BookingConfirmation = ({ roomType, onClose }: BookingConfirmationProps) => {
+const BookingConfirmation = ({
+  roomType,
+  onClose,
+}: BookingConfirmationProps) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-8 max-w-md w-full mx-4">
@@ -29,10 +32,11 @@ const BookingConfirmation = ({ roomType, onClose }: BookingConfirmationProps) =>
             </div>
             <h2 className="text-2xl font-bold mb-4">Booking Request Sent!</h2>
             <p className="text-gray-600 mb-4">
-              Thank you for choosing {roomType}. We've opened WhatsApp for you to confirm your booking.
+              {`    Thank you for choosing ${roomType}. We've opened WhatsApp for you to confirm your booking.`}
             </p>
             <p className="text-gray-600 mb-6">
-              Please complete the booking confirmation process through WhatsApp. Our team will respond to you shortly.
+              Please complete the booking confirmation process through WhatsApp.
+              Our team will respond to you shortly.
             </p>
             <button
               onClick={onClose}
@@ -47,4 +51,4 @@ const BookingConfirmation = ({ roomType, onClose }: BookingConfirmationProps) =>
   );
 };
 
-export default BookingConfirmation; 
+export default BookingConfirmation;

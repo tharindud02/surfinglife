@@ -6,12 +6,19 @@ const PrivacyPolicy = () => {
     <div className="min-h-screen bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <Fade direction="up" triggerOnce>
-          <h1 className="text-3xl font-bold text-center mb-8">Privacy Policy</h1>
-          
+          <h1 className="text-3xl font-bold text-center mb-8">
+            Privacy Policy
+          </h1>
+
           <div className="space-y-6 text-gray-600">
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">1. Information We Collect</h2>
-              <p>We collect information that you provide directly to us, including:</p>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                1. Information We Collect
+              </h2>
+              <p>
+                We collect information that you provide directly to us,
+                including:
+              </p>
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Name and contact information</li>
                 <li>Email address and phone number</li>
@@ -22,7 +29,9 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">2. How We Use Your Information</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                2. How We Use Your Information
+              </h2>
               <p>We use the information we collect to:</p>
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Process your bookings and payments</li>
@@ -34,7 +43,9 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">3. Information Sharing</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                3. Information Sharing
+              </h2>
               <p>We may share your information with:</p>
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Payment processors for secure transactions</li>
@@ -42,12 +53,19 @@ const PrivacyPolicy = () => {
                 <li>Service providers who assist our operations</li>
                 <li>Law enforcement when required by law</li>
               </ul>
-              <p className="mt-2">We do not sell your personal information to third parties.</p>
+              <p className="mt-2">
+                We do not sell your personal information to third parties.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">4. Data Security</h2>
-              <p>We implement appropriate security measures to protect your personal information, including:</p>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                4. Data Security
+              </h2>
+              <p>
+                We implement appropriate security measures to protect your
+                personal information, including:
+              </p>
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Encryption of sensitive data</li>
                 <li>Secure payment processing</li>
@@ -57,7 +75,9 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">5. Your Rights</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                5. Your Rights
+              </h2>
               <p>You have the right to:</p>
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Access your personal information</li>
@@ -69,7 +89,9 @@ const PrivacyPolicy = () => {
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">6. Cookies and Tracking</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                6. Cookies and Tracking
+              </h2>
               <p>We use cookies and similar tracking technologies to:</p>
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Improve website functionality</li>
@@ -77,22 +99,39 @@ const PrivacyPolicy = () => {
                 <li>Remember your preferences</li>
                 <li>Provide personalized content</li>
               </ul>
-              <p className="mt-2">You can control cookie settings through your browser preferences.</p>
+              <p className="mt-2">
+                You can control cookie settings through your browser
+                preferences.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">7. Children's Privacy</h2>
-              <p>Our services are not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">{`7. Children's Privacy`}</h2>
+              <p>
+                Our services are not intended for children under 13. We do not
+                knowingly collect personal information from children under 13.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">8. Changes to Privacy Policy</h2>
-              <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                8. Changes to Privacy Policy
+              </h2>
+              <p>
+                We may update this privacy policy from time to time. We will
+                notify you of any changes by posting the new policy on this
+                page.
+              </p>
             </section>
 
             <section>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">9. Contact Us</h2>
-              <p>If you have any questions about this privacy policy, please contact us at:</p>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                9. Contact Us
+              </h2>
+              <p>
+                If you have any questions about this privacy policy, please
+                contact us at:
+              </p>
               <p className="mt-2">Phone: +94 777 401 667</p>
               <p>Email: privacy@surfinglife.com</p>
             </section>
@@ -103,4 +142,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy; 
+export default PrivacyPolicy;
