@@ -18,36 +18,23 @@ const navigation = [
     <div class="relative flex h-12 sm:h-20 items-center">
       <div class="flex flex-1 items-center sm:justify-between">
         <!-- LOGO -->
-        <div class="flex sm:hidden flex-shrink-0 items-center">
+        <div class="flex flex-shrink-0 items-center">
           <Image
             src={logo}
             alt="Surfing Life logo"
-            width={40}
-            height={40}
+            width={56}
+            height={56}
             format="webp"
-            quality={70}
+            quality={65}
             loading="eager"
             decoding="async"
+            class="w-10 h-10 sm:w-14 sm:h-14"
           />
-          <a href="/" class="text-xl font-semibold text-black ml-4 pt-5">
-            Surfing Life
-            <p class="text-sm font-semibold mb-5 text-lightgrey">Guest House &amp; Restaurant</p>
-          </a>
-        </div>
-        <div class="hidden sm:flex flex-shrink-0 items-center">
-          <Image
-            src={logo}
-            alt="Surfing Life logo"
-            width={72}
-            height={72}
-            format="webp"
-            quality={70}
-            loading="eager"
-            decoding="async"
-          />
-          <a href="/" class="text-2xl font-semibold text-black ml-4 pt-5">
-            Surfing Life
-            <p class="text-lg font-semibold mb-5 text-grey">Guest House &amp; Restaurant</p>
+          <a href="/" class="ml-3 sm:ml-4 pt-2 sm:pt-4">
+            <span class="block text-xl sm:text-2xl font-semibold text-black">Surfing Life</span>
+            <span class="block text-sm sm:text-lg font-semibold text-lightgrey sm:text-grey">
+              Guest House &amp; Restaurant
+            </span>
           </a>
         </div>
 

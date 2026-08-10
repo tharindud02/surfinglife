@@ -1,6 +1,7 @@
 // Booking modal: party size → room suggestions → WhatsApp or email contact,
 // then hand off to property WhatsApp with a pre-filled request.
-export {};
+
+export type OpenBookingFn = (roomType: string) => void;
 
 const WHATSAPP_NUMBER = "94777401667";
 const BOOKING_EMAIL = "info@surfinglife.com";
@@ -428,11 +429,9 @@ if (
     }, 300);
   };
 
-  document.querySelectorAll<HTMLElement>("[data-book-trigger]").forEach((el) => {
-    el.addEventListener("click", () => {
-      openModal(el.dataset.roomType || "Room");
-    });
-  });
+  // Triggers are wired by booking-boot.ts so this chunk stays off the critical path.
+  (window as unknown as { __openBooking?: (roomType: string) => void }).__openBooking =
+    openModal;
 
   document
     .querySelectorAll<HTMLElement>("[data-book-close]")

@@ -14,7 +14,7 @@ const navigation = [
 
 <div
   id="drawer-overlay"
-  class="fixed overflow-hidden z-40 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out -translate-x-full opacity-0 pointer-events-none transition-opacity duration-300"
+  class="fixed overflow-hidden z-40 bg-black/40 inset-0 transform ease-in-out -translate-x-full opacity-0 pointer-events-none transition-opacity duration-300"
 >
   <section
     id="drawer-panel"
@@ -29,7 +29,7 @@ const navigation = [
             width={36}
             height={36}
             format="webp"
-            quality={70}
+            quality={65}
             loading="lazy"
             decoding="async"
           />
@@ -46,7 +46,7 @@ const navigation = [
           navigation.map((item) => (
             <a
               href={item.href}
-              class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-pink"
+              class="block rounded-md px-3 py-2 text-base font-medium text-lightgrey hover:bg-lightpink hover:text-pink"
             >
               {item.name}
             </a>
