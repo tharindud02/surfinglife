@@ -5,121 +5,233 @@
 
 <div
   id="booking-overlay"
-  class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none"
+  class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none"
 >
   <div
     id="booking-modal"
-    class="bg-white rounded-lg p-8 max-w-md w-full mx-4 transition-all duration-300 ease-in-out transform translate-y-4 opacity-0"
+    class="bg-white rounded-2xl shadow-xl max-w-lg w-full max-h-[90vh] overflow-y-auto transition-all duration-300 ease-in-out transform translate-y-4 opacity-0"
   >
-    <div id="booking-form-view">
-      <h2 id="booking-title" class="text-2xl font-bold mb-6 text-center">Book Room</h2>
-      <form id="booking-form" class="space-y-4">
-        <div>
-          <label for="booking-name" class="block text-sm font-medium text-gray-700">Name</label>
-          <input
-            id="booking-name"
-            type="text"
-            name="name"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink"
-          />
+    <div id="booking-form-view" class="p-6 sm:p-8">
+      <h2 id="booking-title" class="text-2xl font-serif font-bold mb-6 text-center text-black">
+        Book a Stay
+      </h2>
+
+      <form id="booking-form" class="space-y-5">
+        <!-- Dates -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="booking-checkin" class="block text-sm font-medium text-gray-800 mb-1.5">
+              Check-in
+            </label>
+            <input
+              id="booking-checkin"
+              type="date"
+              name="checkIn"
+              required
+              class="block w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm shadow-sm focus:border-pink focus:outline-none focus:ring-1 focus:ring-pink"
+            />
+          </div>
+          <div>
+            <label for="booking-checkout" class="block text-sm font-medium text-gray-800 mb-1.5">
+              Check-out
+            </label>
+            <input
+              id="booking-checkout"
+              type="date"
+              name="checkOut"
+              required
+              class="block w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm shadow-sm focus:border-pink focus:outline-none focus:ring-1 focus:ring-pink"
+            />
+          </div>
         </div>
+
+        <!-- Guests -->
         <div>
-          <label for="booking-email" class="block text-sm font-medium text-gray-700">Email</label>
-          <input
-            id="booking-email"
-            type="email"
-            name="email"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink"
-          />
+          <p class="block text-sm font-medium text-gray-800 mb-2">Guests</p>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="rounded-xl border border-gray-200 p-3">
+              <div class="flex items-center justify-between gap-2">
+                <div>
+                  <p class="text-sm font-medium text-gray-900">Adults</p>
+                  <p class="text-xs text-gray-500">Ages 13+</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    id="adults-minus"
+                    aria-label="Fewer adults"
+                    class="h-8 w-8 rounded-full border border-gray-300 text-gray-700 hover:border-pink hover:text-pink disabled:opacity-40"
+                  >
+                    −
+                  </button>
+                  <span id="adults-count" class="w-5 text-center text-sm font-semibold">2</span>
+                  <button
+                    type="button"
+                    id="adults-plus"
+                    aria-label="More adults"
+                    class="h-8 w-8 rounded-full border border-gray-300 text-gray-700 hover:border-pink hover:text-pink disabled:opacity-40"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <input type="hidden" name="adults" id="booking-adults" value="2" />
+            </div>
+
+            <div class="rounded-xl border border-gray-200 p-3">
+              <div class="flex items-center justify-between gap-2">
+                <div>
+                  <p class="text-sm font-medium text-gray-900">Children</p>
+                  <p class="text-xs text-gray-500">Ages 0–12</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <button
+                    type="button"
+                    id="children-minus"
+                    aria-label="Fewer children"
+                    class="h-8 w-8 rounded-full border border-gray-300 text-gray-700 hover:border-pink hover:text-pink disabled:opacity-40"
+                  >
+                    −
+                  </button>
+                  <span id="children-count" class="w-5 text-center text-sm font-semibold">0</span>
+                  <button
+                    type="button"
+                    id="children-plus"
+                    aria-label="More children"
+                    class="h-8 w-8 rounded-full border border-gray-300 text-gray-700 hover:border-pink hover:text-pink disabled:opacity-40"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+              <input type="hidden" name="children" id="booking-children" value="0" />
+            </div>
+          </div>
         </div>
+
+        <!-- Room suggestions -->
         <div>
-          <label for="booking-phone" class="block text-sm font-medium text-gray-700">Phone</label>
-          <input
-            id="booking-phone"
-            type="tel"
-            name="phone"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink"
-          />
+          <div class="flex items-baseline justify-between gap-2 mb-2">
+            <label class="block text-sm font-medium text-gray-800">Suggested rooms</label>
+            <span id="booking-party-summary" class="text-xs text-gray-500">2 guests</span>
+          </div>
+          <div id="room-suggestions" class="space-y-2" role="radiogroup" aria-label="Room options">
+            <!-- Filled by booking.ts -->
+          </div>
+          <input type="hidden" name="roomOption" id="booking-room-option" value="" required />
+          <p id="room-suggestion-hint" class="mt-2 text-xs text-gray-500"></p>
         </div>
+
+        <!-- Contact: WhatsApp or Email -->
         <div>
-          <label for="booking-checkin" class="block text-sm font-medium text-gray-700">Check-in Date</label>
-          <input
-            id="booking-checkin"
-            type="date"
-            name="checkIn"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink"
-          />
-        </div>
-        <div>
-          <label for="booking-checkout" class="block text-sm font-medium text-gray-700">Check-out Date</label>
-          <input
-            id="booking-checkout"
-            type="date"
-            name="checkOut"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink"
-          />
-        </div>
-        <div>
-          <label for="booking-guests" class="block text-sm font-medium text-gray-700">Number of Guests</label>
-          <select
-            id="booking-guests"
-            name="guests"
-            required
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink"
+          <p class="block text-sm font-medium text-gray-800 mb-2">How should we reach you?</p>
+          <div
+            class="grid grid-cols-2 gap-1 rounded-xl bg-gray-100 p-1 mb-3"
+            role="tablist"
+            aria-label="Contact method"
           >
-            <option value="1">1 Guest</option>
-            <option value="2">2 Guests</option>
-            <option value="3">3 Guests</option>
-            <option value="4">4 Guests</option>
-          </select>
+            <button
+              type="button"
+              id="contact-whatsapp"
+              data-contact-method="whatsapp"
+              class="contact-tab rounded-lg py-2.5 text-sm font-medium transition-colors bg-white text-gray-900 shadow-sm"
+              aria-selected="true"
+            >
+              WhatsApp
+            </button>
+            <button
+              type="button"
+              id="contact-email"
+              data-contact-method="email"
+              class="contact-tab rounded-lg py-2.5 text-sm font-medium transition-colors text-gray-600 hover:text-gray-900"
+              aria-selected="false"
+            >
+              Email
+            </button>
+          </div>
+          <input type="hidden" name="contactMethod" id="booking-contact-method" value="whatsapp" />
+
+          <div id="contact-whatsapp-field">
+            <label for="booking-whatsapp" class="sr-only">WhatsApp number</label>
+            <div class="relative">
+              <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-sm text-gray-400">
+                +
+              </span>
+              <input
+                id="booking-whatsapp"
+                type="tel"
+                name="whatsapp"
+                inputmode="tel"
+                autocomplete="tel"
+                placeholder="94 77 123 4567"
+                class="block w-full rounded-lg border border-gray-200 py-2.5 pl-7 pr-3 text-sm shadow-sm focus:border-pink focus:outline-none focus:ring-1 focus:ring-pink"
+              />
+            </div>
+            <p class="mt-1.5 text-xs text-gray-500">Include country code. We’ll reply on WhatsApp.</p>
+          </div>
+
+          <div id="contact-email-field" hidden>
+            <label for="booking-email" class="sr-only">Email address</label>
+            <input
+              id="booking-email"
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              class="block w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm shadow-sm focus:border-pink focus:outline-none focus:ring-1 focus:ring-pink"
+            />
+            <p class="mt-1.5 text-xs text-gray-500">We’ll confirm availability by email.</p>
+          </div>
         </div>
+
+        <!-- Special requests -->
         <div>
-          <label for="booking-requests" class="block text-sm font-medium text-gray-700">Special Requests</label>
+          <label for="booking-requests" class="block text-sm font-medium text-gray-800 mb-1.5">
+            Special requests <span class="font-normal text-gray-400">(optional)</span>
+          </label>
           <textarea
             id="booking-requests"
             name="specialRequests"
-            rows="3"
-            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-pink focus:ring-pink"
+            rows="2"
+            placeholder="Arrival time, dietary needs, crib…"
+            class="block w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm shadow-sm focus:border-pink focus:outline-none focus:ring-1 focus:ring-pink resize-y"
           ></textarea>
         </div>
-        <div class="flex justify-end space-x-4 mt-6">
+
+        <div class="flex justify-end gap-3 pt-1">
           <button
             type="button"
             data-book-close
-            class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+            class="px-4 py-2.5 rounded-lg border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-50"
           >
             Cancel
           </button>
           <button
             type="submit"
-            class="px-4 py-2 bg-pink text-white rounded-md hover:bg-pink/90"
+            id="booking-submit"
+            class="px-5 py-2.5 rounded-lg bg-pink text-sm font-medium text-white hover:bg-pink/90"
           >
-            Book Now
+            Book via WhatsApp
           </button>
         </div>
       </form>
     </div>
 
-    <div id="booking-confirmation" hidden>
+    <div id="booking-confirmation" class="p-6 sm:p-8" hidden>
       <div class="text-center">
         <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-4">
           <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
           </svg>
         </div>
-        <h2 class="text-2xl font-bold mb-4">Booking Request Sent!</h2>
+        <h2 class="text-2xl font-serif font-bold mb-4">Booking Request Ready</h2>
         <p id="booking-confirmation-text" class="text-gray-600 mb-4"></p>
         <p class="text-gray-600 mb-6">
-          Please complete the booking confirmation process through WhatsApp. Our team will respond to you shortly.
+          Finish sending the message so our team can confirm availability and rates.
         </p>
         <button
           data-book-close
-          class="px-4 py-2 bg-pink text-white rounded-md hover:bg-pink/90"
+          class="px-4 py-2.5 rounded-lg bg-pink text-sm font-medium text-white hover:bg-pink/90"
         >
           Close
         </button>
