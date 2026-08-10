@@ -11,10 +11,10 @@ import heroImage from "../assets/banner/banner-image-surf.png";
 // Must match Banner.astro Image width/format/quality so preload === LCP byte.
 const lcpImage = await getImage({
   src: heroImage,
-  width: 640,
-  height: 515,
+  width: 800,
+  height: 644,
   format: "webp",
-  quality: 65,
+  quality: 72,
 });
 ---
 
@@ -23,7 +23,7 @@ const lcpImage = await getImage({
   description="A modern boutique guest house near Coconut Beach in Weligama, Sri Lanka. Choose from eight individually styled rooms, including air-conditioned deluxe suites, and dine across two distinct restaurants. Refined comfort, steps from Sri Lanka's best surf breaks."
   lcpImageSrc={lcpImage.src}
 >
-  <main>
+  <main id="main-content">
     <Banner />
     <AboutTeaser />
     <Rooms />

@@ -58,13 +58,13 @@ const roomTypes = [
   <div class="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 mt-20 md:pt-24 pb-20">
     <div class="text-center">
       <Reveal direction="up" delay={80}>
-        <h2 class="text-pink text-lg font-normal mb-3 tracking-widest uppercase ls-51">Our Rooms</h2>
+        <p class="text-pink text-lg font-medium mb-3 tracking-widest uppercase ls-51">Our Rooms</p>
       </Reveal>
       <Reveal direction="up" delay={140}>
-        <h3 class="text-3xl lg:text-5xl font-serif font-semibold text-black">A Room for Every Kind of Stay</h3>
+        <h2 class="text-3xl lg:text-5xl font-serif font-semibold text-black">A Room for Every Kind of Stay</h2>
       </Reveal>
       <Reveal direction="up" delay={180}>
-        <p class="text-grey text-lg font-normal mt-5 max-w-2xl mx-auto">
+        <p class="text-lightgrey/90 text-lg font-normal mt-5 max-w-2xl mx-auto">
           Five distinct room styles, each individually designed — from breezy fan-cooled retreats to
           air-conditioned deluxe suites.
         </p>
@@ -79,12 +79,12 @@ const roomTypes = [
               <Image
                 src={room.image}
                 alt={room.name}
-          widths={[360, 480, 640]}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          width={480}
-          height={384}
+                widths={[480, 640, 800, 960]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                width={640}
+                height={512}
                 format="webp"
-                quality={60}
+                quality={72}
                 loading="lazy"
                 decoding="async"
                 class="inner-img object-cover w-full h-full"

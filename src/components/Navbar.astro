@@ -14,42 +14,40 @@ const navigation = [
 ---
 
 <nav class="navbar relative z-30 overflow-visible">
-  <div class="navbar-old-shell mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 overflow-visible">
-    <div class="navbar-old relative flex items-center overflow-visible">
+  <div class="navbar-shell mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 overflow-visible">
+    <div class="navbar-row relative flex items-center overflow-visible">
       <div class="flex flex-1 items-center sm:justify-between gap-3 overflow-visible">
-        <!-- Overlapping logo badge -->
-        <a href="/" class="navbar-old-logo flex flex-shrink-0 items-center gap-3 group">
+        <a href="/" class="navbar-logo flex flex-shrink-0 items-center gap-3 group">
           <Image
             src={logo}
             alt="Surfing Life"
-            widths={[88, 112, 144]}
-            sizes="(max-width: 640px) 72px, 96px"
+            widths={[96, 128, 192]}
+            sizes="80px"
             width={96}
             height={96}
             format="webp"
             quality={90}
             loading="eager"
             decoding="async"
-            class="navbar-old-logo__img"
+            class="navbar-logo__img"
           />
-          <span class="hidden sm:block">
-            <span class="block text-xl sm:text-2xl font-semibold text-black leading-tight group-hover:text-pink transition-colors">
+          <span class="hidden sm:block self-center">
+            <span class="block text-lg sm:text-xl font-semibold text-black leading-tight group-hover:text-pink transition-colors">
               Surfing Life
             </span>
-            <span class="block text-xs sm:text-sm font-medium text-grey leading-snug">
+            <span class="block text-[11px] sm:text-xs font-medium text-grey leading-snug">
               Guest House &amp; Restaurant
             </span>
           </span>
         </a>
 
-        <!-- LINKS -->
         <div class="hidden lg:flex items-center">
-          <div class="flex justify-end space-x-4">
+          <div class="flex justify-end space-x-3 xl:space-x-4">
             {
               navigation.map((item) => (
                 <a
                   href={item.href}
-                  class="navlinks px-3 py-2 rounded-md text-lg font-normal opacity-50 hover:opacity-100 hover:text-black space-links"
+                  class="navlinks px-2 py-1.5 rounded-md text-base font-normal text-lightgrey/75 hover:text-black space-links"
                 >
                   {item.name}
                 </a>
@@ -57,19 +55,19 @@ const navigation = [
             }
           </div>
         </div>
-        <div class="gap-6 hidden lg:flex">
+
+        <div class="hidden lg:flex">
           <button
             data-book-trigger
             data-room-type="Room"
-            class="flex justify-end text-sm font-medium bg-pink text-white py-3 px-6 lg:px-8 rounded-full hover:bg-pink/40 transition-all duration-300 ease-in-out"
+            class="text-sm font-medium bg-pink text-white py-2 px-5 xl:px-6 rounded-full hover:bg-pink/40 transition-all duration-300 ease-in-out"
           >
             Book Now
           </button>
         </div>
       </div>
 
-      <!-- HAMBURGER (mobile) -->
-      <div class="block lg:hidden shrink-0">
+      <div class="block lg:hidden shrink-0 self-center">
         <button id="drawer-trigger" aria-label="Open menu" class="p-2 -mr-1">
           <svg xmlns="http://www.w3.org/2000/svg" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -83,51 +81,52 @@ const navigation = [
 <MobileDrawer />
 
 <style>
-  /*
-    Thin link row + taller logo. Extra top/bottom padding keeps the full
-    circle inside the nav box so nothing is clipped by the viewport edge.
-  */
-  .navbar-old-shell {
-    padding-top: 1.15rem;
-    padding-bottom: 1.15rem;
+  /* Compact bar; logo hangs below into the page */
+  .navbar-shell {
+    padding-top: 0.4rem;
+    padding-bottom: 0.75rem;
     overflow: visible;
   }
 
-  .navbar-old {
-    min-height: 3.25rem;
+  .navbar-row {
+    height: 2.75rem;
     overflow: visible;
   }
 
-  .navbar-old-logo {
+  .navbar-logo {
     position: relative;
     z-index: 20;
+    align-self: flex-start;
   }
 
-  .navbar-old-logo__img {
+  .navbar-logo__img {
     display: block;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 4.25rem;
+    height: 4.25rem;
     max-width: none;
     object-fit: contain;
     border-radius: 9999px;
+    background-color: #ffffff;
+    /* Pull bottom of badge below the thin nav strip */
+    margin-bottom: -1.6rem;
     box-shadow:
       0 8px 20px rgba(0, 0, 0, 0.22),
-      0 0 0 3px #faf7f0;
+      0 0 0 3px #ffffff;
   }
 
   @media (min-width: 640px) {
-    .navbar-old-shell {
-      padding-top: 1.35rem;
-      padding-bottom: 1.35rem;
+    .navbar-shell {
+      padding-bottom: 0.9rem;
     }
 
-    .navbar-old {
-      min-height: 3.5rem;
+    .navbar-row {
+      height: 3rem;
     }
 
-    .navbar-old-logo__img {
-      width: 6rem;
-      height: 6rem;
+    .navbar-logo__img {
+      width: 5rem;
+      height: 5rem;
+      margin-bottom: -2.4rem;
     }
   }
 </style>

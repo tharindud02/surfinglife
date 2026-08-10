@@ -373,9 +373,10 @@ if (
     document.querySelectorAll<HTMLElement>(".contact-tab").forEach((tab) => {
       const active = tab.dataset.contactMethod === method;
       tab.setAttribute("aria-selected", active ? "true" : "false");
+      tab.setAttribute("tabindex", active ? "0" : "-1");
       tab.className = active
         ? "contact-tab rounded-lg py-2.5 text-sm font-medium transition-colors bg-white text-gray-900 shadow-sm"
-        : "contact-tab rounded-lg py-2.5 text-sm font-medium transition-colors text-gray-600 hover:text-gray-900";
+        : "contact-tab rounded-lg py-2.5 text-sm font-medium transition-colors text-gray-700 hover:text-gray-900";
     });
 
     if (method === "whatsapp") {

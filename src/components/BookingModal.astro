@@ -133,28 +133,38 @@
             <button
               type="button"
               id="contact-whatsapp"
+              role="tab"
               data-contact-method="whatsapp"
               class="contact-tab rounded-lg py-2.5 text-sm font-medium transition-colors bg-white text-gray-900 shadow-sm"
               aria-selected="true"
+              aria-controls="contact-whatsapp-field"
+              tabindex="0"
             >
               WhatsApp
             </button>
             <button
               type="button"
               id="contact-email"
+              role="tab"
               data-contact-method="email"
-              class="contact-tab rounded-lg py-2.5 text-sm font-medium transition-colors text-gray-600 hover:text-gray-900"
+              class="contact-tab rounded-lg py-2.5 text-sm font-medium transition-colors text-gray-700 hover:text-gray-900"
               aria-selected="false"
+              aria-controls="contact-email-field"
+              tabindex="-1"
             >
               Email
             </button>
           </div>
           <input type="hidden" name="contactMethod" id="booking-contact-method" value="whatsapp" />
 
-          <div id="contact-whatsapp-field">
+          <div
+            id="contact-whatsapp-field"
+            role="tabpanel"
+            aria-labelledby="contact-whatsapp"
+          >
             <label for="booking-whatsapp" class="sr-only">WhatsApp number</label>
             <div class="relative">
-              <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-sm text-gray-400">
+              <span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-sm text-gray-500">
                 +
               </span>
               <input
@@ -167,10 +177,15 @@
                 class="block w-full rounded-lg border border-gray-200 py-2.5 pl-7 pr-3 text-sm shadow-sm focus:border-pink focus:outline-none focus:ring-1 focus:ring-pink"
               />
             </div>
-            <p class="mt-1.5 text-xs text-gray-500">Include country code. We’ll reply on WhatsApp.</p>
+            <p class="mt-1.5 text-xs text-gray-600">Include country code. We’ll reply on WhatsApp.</p>
           </div>
 
-          <div id="contact-email-field" hidden>
+          <div
+            id="contact-email-field"
+            role="tabpanel"
+            aria-labelledby="contact-email"
+            hidden
+          >
             <label for="booking-email" class="sr-only">Email address</label>
             <input
               id="booking-email"

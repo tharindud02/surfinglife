@@ -54,6 +54,12 @@ const ogImage = new URL("/images/Banner/banner-image-surf.png", Astro.site);
     <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
+    <a
+      href="#main-content"
+      class="skip-link"
+    >
+      Skip to main content
+    </a>
     <Navbar />
     <slot />
     <WhatsappFab />

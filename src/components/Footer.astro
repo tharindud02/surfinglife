@@ -4,9 +4,17 @@ import logo from "../assets/logo/logo.png";
 import GoogleMap from "./GoogleMap.astro";
 
 const socialLinks = [
-  { imgSrc: "/images/Footer/facebook.svg", link: "https://facebook.com", width: 10 },
-  { imgSrc: "/images/Footer/insta.svg", link: "https://instagram.com", width: 14 },
-];
+  {
+    name: "Facebook",
+    link: "https://facebook.com",
+    icon: "facebook",
+  },
+  {
+    name: "Instagram",
+    link: "https://instagram.com",
+    icon: "instagram",
+  },
+] as const;
 ---
 
 <footer class="mx-auto max-w-2xl pt-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -16,27 +24,42 @@ const socialLinks = [
         <Image
           src={logo}
           alt="Surfing Life"
-          width={88}
-          height={88}
+          widths={[80, 120, 160]}
+          sizes="64px"
+          width={64}
+          height={64}
           format="webp"
           quality={85}
           loading="lazy"
           decoding="async"
-          class="w-20 h-20 object-contain rounded-full shadow-sm ring-1 ring-black/5"
+          class="w-16 h-16 object-contain rounded-full bg-white shadow-sm ring-2 ring-white"
         />
         <a href="/" class="text-2xl font-semibold text-black">Surfing Life</a>
       </div>
-      <h3 class="text-textbl text-xs font-medium mt-5 mb-4 lg:mb-16">
-        A Modern Boutique Guest House with Two Restaurants <br />
-        and Eight Individually Styled Rooms
-      </h3>
-      <div class="flex gap-4">
+      <p class="text-textbl text-sm font-medium mt-4 mb-5 max-w-sm">
+        A Modern Boutique Guest House with Two Restaurants and Eight Individually Styled Rooms
+      </p>
+      <div class="flex items-center gap-3">
         {
           socialLinks.map((item) => (
-            <a href={item.link} target="_blank" rel="noopener noreferrer">
-              <div class="bg-white h-10 w-10 shadow-xl text-base rounded-full flex items-center justify-center footer-icons hover:bg-pink">
-                <img src={item.imgSrc} alt="" width={item.width} height={2} class="sepiaa" />
-              </div>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={item.name}
+              class="social-btn"
+            >
+              {item.icon === "facebook" ? (
+                <svg class="social-btn__icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                  <path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14C17.026 2.074 15.685 2 14.29 2 11.26 2 9 3.97 9 7.29V9.5H6.5v4H9V22h5v-8.5z" />
+                </svg>
+              ) : (
+                <svg class="social-btn__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.75">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
+              )}
             </a>
           ))
         }
@@ -54,12 +77,40 @@ const socialLinks = [
     </p>
     <div class="flex gap-5 mt-5 md:mt-0 justify-center md:justify-start">
       <p class="text-darkgrey text-sm font-normal">
-        <a href="/privacy" target="_blank">Privacy policy</a>
+        <a href="/privacy">Privacy policy</a>
       </p>
-      <div class="h-5 bg-bordertop w-0.5"></div>
+      <div class="h-5 bg-bordertop w-0.5" aria-hidden="true"></div>
       <p class="text-darkgrey text-sm font-normal">
-        <a href="/terms" target="_blank">Terms &amp; Conditions</a>
+        <a href="/terms">Terms &amp; Conditions</a>
       </p>
     </div>
   </div>
 </footer>
+
+<style>
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background: #fff;
+    color: #2a2723;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+
+  .social-btn:hover {
+    background: #b08d57;
+    color: #fff;
+    transform: translateY(-4px);
+  }
+
+  .social-btn__icon {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: block;
+  }
+</style>
