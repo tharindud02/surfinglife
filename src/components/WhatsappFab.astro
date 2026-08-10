@@ -1,0 +1,15 @@
+---
+const message =
+  "Hi Eric! I'm interested in booking a room for [NUMBER_OF_NIGHTS] nights for [NUMBER_OF_PEOPLE] people. I'm also interested in learning more about your rates and availability.";
+---
+
+<div class="block lg:hidden fixed bottom-2 right-0 z-50">
+  <a href={`https://wa.me/+94777401667?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener noreferrer">
+    <button
+      aria-label="Chat on WhatsApp"
+      class="w-24 h-24 rounded-full bg-green-500 flex justify-center items-center hover:scale-110 transition-transform duration-150"
+    >
+      <img src="/images/Navbar/whatsapp.png" alt="WhatsApp" width="64" height="64" />
+    </button>
+  </a>
+</div>

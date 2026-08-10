@@ -1,0 +1,60 @@
+---
+import logo from "../assets/logo/logo.png";
+import { Image } from "astro:assets";
+
+const navigation = [
+  { name: "Home", href: "#home-section" },
+  { name: "About us", href: "#about-section" },
+  { name: "Rooms", href: "#rooms-section" },
+  { name: "Restaurants", href: "#cook-section" },
+  { name: "Gallery", href: "#gallery-section" },
+  { name: "Events", href: "#events-section" },
+];
+---
+
+<div
+  id="drawer-overlay"
+  class="fixed overflow-hidden z-40 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out -translate-x-full opacity-0 pointer-events-none transition-opacity duration-300"
+>
+  <section
+    id="drawer-panel"
+    class="w-340px max-w-lg left-0 absolute bg-white h-full shadow-xl duration-300 ease-in-out transition-transform transform -translate-x-full"
+  >
+    <article class="relative w-340px max-w-lg pb-10 flex flex-col space-y-6 h-full">
+      <header class="px-4 py-4 flex items-center justify-between">
+        <div class="flex flex-shrink-0 items-center">
+          <Image src={logo} alt="logo" width={36} height={36} />
+          <a href="/" class="text-2xl font-semibold text-black ml-4">Surfing Life</a>
+        </div>
+        <button id="drawer-close" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </header>
+      <div class="mt-5 px-2">
+        {
+          navigation.map((item) => (
+            <a
+              href={item.href}
+              class="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50 hover:text-pink"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+        <a
+          href="#rooms-section"
+          class="block w-full mt-4 rounded-full bg-pink text-white py-3 px-6 text-base font-medium text-center hover:bg-pink/90"
+        >
+          Book Now
+        </a>
+      </div>
+    </article>
+  </section>
+  <section class="w-screen h-full cursor-pointer"></section>
+</div>
+
+<script>
+  import "../scripts/drawer";
+</script>

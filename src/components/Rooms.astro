@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import Reveal from "./Reveal.astro";
+import budgetImg from "../assets/rooms/budget1.jpg";
+import twinImg from "../assets/rooms/top-garden.jpg";
+import tripleImg from "../assets/rooms/triple-room-1.jpg";
+import cabanaImg from "../assets/rooms/cabana-night.jpg";
+import deluxeImg from "../assets/rooms/couple1.jpg";
+
+const roomTypes = [
+  {
+    key: "budget-double",
+    name: "Budget Double Room",
+    tag: "Fan Cooled",
+    image: budgetImg,
+    description:
+      "Smart, comfortable double rooms for travelers who want boutique styling without the boutique price tag.",
+    qty: "2 Rooms Available",
+  },
+  {
+    key: "twin",
+    name: "Twin Room",
+    tag: "Fan Cooled",
+    image: twinImg,
+    description: "Two well-appointed single beds in a bright, restful space — ideal for friends traveling together.",
+    qty: "1 Room Available",
+  },
+  {
+    key: "triple-ac",
+    name: "Triple Room",
+    tag: "Air Conditioned",
+    image: tripleImg,
+    description:
+      "A spacious air-conditioned room designed for three, blending contemporary comfort with warm, natural tones.",
+    qty: "1 Room Available",
+  },
+  {
+    key: "cabana",
+    name: "Cabana Room",
+    tag: "Sleeps 3",
+    image: cabanaImg,
+    description:
+      "Our signature standalone cabana, a private retreat with its own character — perfect for small groups or families.",
+    qty: "1 Room Available",
+  },
+  {
+    key: "deluxe-ac",
+    name: "Deluxe Room",
+    tag: "Air Conditioned",
+    image: deluxeImg,
+    description: "Our most refined rooms, appointed with premium furnishings and air conditioning for an elevated stay.",
+    qty: "2 Rooms Available",
+  },
+];
+---
+
+<div id="rooms-section" class="relative pt-16 bg-lightpink">
+  <div class="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 mt-20 md:pt-24 pb-20">
+    <div class="text-center">
+      <Reveal direction="up" delay={400}>
+        <h2 class="text-pink text-lg font-normal mb-3 tracking-widest uppercase ls-51">Our Rooms</h2>
+      </Reveal>
+      <Reveal direction="up" delay={800}>
+        <h3 class="text-3xl lg:text-5xl font-serif font-semibold text-black">A Room for Every Kind of Stay</h3>
+      </Reveal>
+      <Reveal direction="up" delay={900}>
+        <p class="text-grey text-lg font-normal mt-5 max-w-2xl mx-auto">
+          Five distinct room styles, each individually designed — from breezy fan-cooled retreats to
+          air-conditioned deluxe suites.
+        </p>
+      </Reveal>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-16 px-6">
+      {
+        roomTypes.map((room) => (
+          <div class="flex justify-center overflow-hidden rounded-3xl shadow-fi">
+            <div class="image-container w-full">
+              <Image src={room.image} alt={room.name} width={1000} height={805} class="inner-img object-cover w-full" />
+              <div class="absolute top-4 left-4 bg-white/90 text-pink text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full">
+                {room.tag}
+              </div>
+              <div class="image-overlay" />
+              <div class="image-text text-white text-center px-6">
+                <p class="text-xs uppercase tracking-widest text-lightgold mb-2">{room.qty}</p>
+                <p class="text-2xl lg:text-3xl font-serif font-bold">{room.name}</p>
+                <p class="text-sm lg:text-base font-thin py-4">{room.description}</p>
+                <button
+                  data-book-trigger
+                  data-room-type={room.name}
+                  class="border w-full md:w-auto mt-5 md:mt-0 border-white justify-center rounded-full text-lg font-medium items-center py-3 px-5 text-white hover:text-white hover:bg-pink"
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+---
+import Reveal from "./Reveal.astro";
+---
+
+<div id="about-section" class="mx-auto max-w-7xl px-6">
+  <div class="sm:pt-40 pt-96">
+    <div class="text-center mb-14">
+      <Reveal direction="down" delay={400}>
+        <h3 class="text-pink text-lg font-normal mb-3 ls-51 uppercase">About Us</h3>
+      </Reveal>
+      <Reveal direction="up" delay={800}>
+        <p class="text-3xl lg:text-5xl font-serif font-semibold text-lightgrey">Our Surfing Life Journey</p>
+      </Reveal>
+    </div>
+    <div class="text-center mb-4">
+      <Reveal direction="down" delay={800}>
+        <p class="text-xl lg:text-2xl font-normal text-lightgrey">A Boutique Beachside Escape, Reimagined</p>
+      </Reveal>
+    </div>
+    <div class="text-center mb-14">
+      <Reveal direction="up" delay={800}>
+        <p class="text-lg lg:text-lg font-thin text-grey">
+          Since 2007, Surfing Life Guest House has welcomed travelers to Weligama with genuine warmth — an
+          achievement recognized with TripAdvisor's Best Budget Hotel award in 2015 and 2016. Today, that same
+          hospitality lives inside a fully reimagined modern guest house: eight individually styled rooms, from
+          breezy fan-cooled retreats to air-conditioned deluxe suites, and two restaurants serving everything from
+          beachfront classics to refined evening dining. Owner Eric still rents surfboards and stores your own, so
+          the waves remain just as close as ever.
+        </p>
+      </Reveal>
+    </div>
+    <div class="text-center mb-4">
+      <Reveal direction="up" delay={800}>
+        <a
+          href="/aboutus"
+          class="inline-block border w-full md:w-auto mt-5 md:mt-0 border-pink justify-center rounded-full text-xl font-medium items-center py-3 px-5 text-pink hover:text-white hover:bg-pink"
+        >
+          Read More
+        </a>
+      </Reveal>
+    </div>
+  </div>
+</div>

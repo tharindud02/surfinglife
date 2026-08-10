@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo/logo.png";
+import GoogleMap from "./GoogleMap.astro";
+
+const socialLinks = [
+  { imgSrc: "/images/Footer/facebook.svg", link: "https://facebook.com", width: 10 },
+  { imgSrc: "/images/Footer/insta.svg", link: "https://instagram.com", width: 14 },
+];
+---
+
+<footer class="mx-auto max-w-2xl pt-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+  <div class="my-12 grid grid-cols-1 gap-y-10 sm:grid-cols-6 lg:grid-cols-12">
+    <div class="sm:col-span-6 lg:col-span-5">
+      <div class="flex flex-shrink-0 items-center">
+        <Image src={logo} alt="logo" width={56} height={56} />
+        <a href="/" class="text-2xl font-semibold text-black ml-4">Surfing Life</a>
+      </div>
+      <h3 class="text-textbl text-xs font-medium mt-5 mb-4 lg:mb-16">
+        A Modern Boutique Guest House with Two Restaurants <br />
+        and Eight Individually Styled Rooms
+      </h3>
+      <div class="flex gap-4">
+        {
+          socialLinks.map((item) => (
+            <a href={item.link} target="_blank" rel="noopener noreferrer">
+              <div class="bg-white h-10 w-10 shadow-xl text-base rounded-full flex items-center justify-center footer-icons hover:bg-pink">
+                <img src={item.imgSrc} alt="" width={item.width} height={2} class="sepiaa" />
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="sm:col-span-6 col-span-12">
+      <GoogleMap />
+    </div>
+  </div>
+
+  <div class="py-10 md:flex items-center justify-between border-t border-t-bordertop">
+    <p class="text-darkgrey text-sm text-center md:text-start font-normal">
+      &copy;2026 Surfing Life. All Rights Reserved.
+    </p>
+    <div class="flex gap-5 mt-5 md:mt-0 justify-center md:justify-start">
+      <p class="text-darkgrey text-sm font-normal">
+        <a href="/privacy" target="_blank">Privacy policy</a>
+      </p>
+      <div class="h-5 bg-bordertop w-0.5"></div>
+      <p class="text-darkgrey text-sm font-normal">
+        <a href="/terms" target="_blank">Terms &amp; Conditions</a>
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Reveal from "../components/Reveal.astro";
+
+const sections = [
+  {
+    heading: "Eight Rooms, Individually Designed",
+    body: "Every room at Surfing Life has been thoughtfully reimagined with a modern, elegant touch. Choose from two Budget Double Rooms, a Twin Room, an air-conditioned Triple Room, our signature Cabana Room for up to three guests, or one of two air-conditioned Deluxe Rooms. Whichever you choose, expect considered design, quality linens, and the kind of comfort that turns a stay into a stay you remember.",
+  },
+  {
+    heading: "Two Restaurants, Endless Flavor",
+    body: "Good food is at the heart of the Surfing Life experience. Our beachfront restaurant serves relaxed, all-day dining and fresh seafood in an open-air setting, while our second restaurant offers a more refined evening menu of homemade and international dishes alongside expertly crafted cocktails. Two kitchens, two moods, one seaside address.",
+  },
+  {
+    heading: "Lazy Afternoons in Paradise",
+    body: "Picture yourself unwinding in our garden courtyard after a refreshing swim, hammocks swaying gently between the trees as the coastal breeze rolls in. Whether you're here to surf, relax, or simply slow down, Surfing Life gives you space to do it in comfort.",
+  },
+  {
+    heading: "Surf's Up or Store Your Board",
+    body: "Owner Eric, a fellow surf enthusiast, understands your passion. That's why we offer surfboard rentals at fair rates, making it easier for you to catch the waves. If you're bringing your own board, we have secure upright storage space, keeping your prized possession safe and ready for action.",
+  },
+];
+---
+
+<BaseLayout
+  title="About Us - Surfing Life Guest House, Weligama"
+  description="Discover the story behind Surfing Life Guest House: a modern boutique guest house in Weligama, Sri Lanka, with eight individually styled rooms and two restaurants, born from a surf-loving community since 2007."
+>
+  <main>
+    <div class="mx-auto max-w-7xl py-20 px-6" id="about-section">
+      <div class="text-center mb-14">
+        <Reveal direction="up" delay={400}>
+          <h3 class="text-pink text-lg font-normal mb-3 ls-51 uppercase">About Us</h3>
+        </Reveal>
+        <Reveal direction="up" delay={800}>
+          <p class="text-3xl lg:text-5xl font-serif font-semibold text-lightgrey">Our Surfing Life Journey</p>
+        </Reveal>
+      </div>
+
+      <div class="text-center mb-4">
+        <Reveal direction="up" delay={800}>
+          <p class="text-xl lg:text-2xl font-normal text-lightgrey">
+            Welcome to Surfing Life Guest House: Where Waves and Wanderers Unite
+          </p>
+        </Reveal>
+      </div>
+      <div class="text-center mb-14">
+        <Reveal direction="up" delay={800}>
+          <p class="text-lg lg:text-lg font-thin text-grey">
+            In the heart of paradise, nestled near the captivating reef breaks of Weligama, Surfing Life Guest House
+            isn't just a place to stay; it's a haven for surf enthusiasts, families, and travelers seeking a
+            beautifully designed coastal escape. Our journey began in 2007 as a small business with a big dream, and
+            today, we proudly stand as a modern boutique guest house, reimagined for the traveler who wants comfort
+            without compromise.
+          </p>
+        </Reveal>
+      </div>
+
+      {
+        sections.map((section) => (
+          <>
+            <div class="text-center mb-4">
+              <Reveal direction="up" delay={800}>
+                <p class="text-xl lg:text-2xl font-normal text-lightgrey">{section.heading}</p>
+              </Reveal>
+            </div>
+            <div class="text-center mb-14">
+              <Reveal direction="up" delay={800}>
+                <p class="text-lg lg:text-lg font-thin text-grey">{section.body}</p>
+              </Reveal>
+            </div>
+          </>
+        ))
+      }
+
+      <div class="text-center mb-4">
+        <Reveal direction="up" delay={800}>
+          <p class="text-xl lg:text-2xl font-normal text-lightgrey">Triumphs in Hospitality</p>
+        </Reveal>
+      </div>
+      <div class="text-center mb-14">
+        <Reveal direction="up" delay={800}>
+          <p class="text-lg lg:text-lg font-thin text-grey">
+            Our dedication to providing an authentic and unforgettable experience has earned us recognition. In 2015
+            and 2016, Surfing Life Guest House was honored as TripAdvisor's Best Budget Hotel, a testament to our
+            commitment to delivering top-notch service. That same commitment now shapes a fully reimagined guest
+            house, where modern design meets the warmth that earned us that recognition in the first place.
+            <br /><br />
+            Join us at Surfing Life Guest House, where surf, style, and seaside hospitality converge. We're not just
+            a guest house; we're a community of surf lovers and wanderers, and we can't wait to share our slice of
+            paradise with you.
+            <br /><br />
+            Dive into the waves, unwind in style, and let your Surfing Life story begin.
+          </p>
+        </Reveal>
+      </div>
+
+      <div class="text-center mb-4">
+        <Reveal direction="up" delay={800}>
+          <p class="text-xl lg:text-2xl font-normal text-lightgrey">Book Your Stay Today</p>
+        </Reveal>
+      </div>
+      <div class="text-center mb-14">
+        <Reveal direction="up" delay={800}>
+          <p class="text-lg lg:text-lg font-thin text-grey">
+            From our five room styles to our two restaurants, every detail at Surfing Life Guest House has been
+            designed for travelers who want modern comfort in one of Sri Lanka's most beautiful surf towns. We look
+            forward to welcoming you.
+          </p>
+        </Reveal>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
