@@ -1,17 +1,14 @@
 ---
-/** Lightweight OSM embed — interactive by default, no Google Maps JS (~400KB). */
-const lat = 5.9735;
-const lon = 80.4295;
-const delta = 0.012;
-const bbox = `${lon - delta}%2C${lat - delta}%2C${lon + delta}%2C${lat + delta}`;
-const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lon}`;
-const mapsLink = `https://www.google.com/maps/search/?api=1&query=Surfing%20Life%20Guest%20House%20Weligama`;
+const mapSrc =
+  "https://maps.google.com/maps?q=Surfing%20Life%20Guest%20House%20Weligama&t=&z=15&ie=UTF8&iwloc=&output=embed";
+const mapsLink =
+  "https://www.google.com/maps/search/?api=1&query=Surfing%20Life%20Guest%20House%20Weligama";
 ---
 
 <div class="mapouter">
   <div class="gmap_canvas">
     <iframe
-      title="Surfing Life Guest House on the map"
+      title="Surfing Life Guest House on Google Maps"
       class="gmap_iframe"
       width="100%"
       height="200"

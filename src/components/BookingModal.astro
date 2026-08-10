@@ -48,19 +48,19 @@
         <!-- Guests -->
         <div>
           <p class="block text-sm font-medium text-gray-800 mb-2">Guests</p>
-          <div class="grid grid-cols-2 gap-3">
-            <div class="rounded-xl border border-gray-200 p-3">
-              <div class="flex items-center justify-between gap-2">
-                <div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div class="rounded-xl border border-gray-200 p-3 min-w-0">
+              <div class="flex items-center justify-between gap-2 min-w-0">
+                <div class="min-w-0">
                   <p class="text-sm font-medium text-gray-900">Adults</p>
                   <p class="text-xs text-gray-500">Ages 13+</p>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 shrink-0">
                   <button
                     type="button"
                     id="adults-minus"
                     aria-label="Fewer adults"
-                    class="h-8 w-8 rounded-full border border-gray-300 text-gray-700 hover:border-ink hover:text-ink disabled:opacity-40"
+                    class="h-8 w-8 shrink-0 rounded-full border border-gray-300 text-gray-700 hover:border-ink hover:text-ink disabled:opacity-40"
                   >
                     −
                   </button>
@@ -69,7 +69,7 @@
                     type="button"
                     id="adults-plus"
                     aria-label="More adults"
-                    class="h-8 w-8 rounded-full border border-gray-300 text-gray-700 hover:border-ink hover:text-ink disabled:opacity-40"
+                    class="h-8 w-8 shrink-0 rounded-full border border-gray-300 text-gray-700 hover:border-ink hover:text-ink disabled:opacity-40"
                   >
                     +
                   </button>
@@ -78,18 +78,18 @@
               <input type="hidden" name="adults" id="booking-adults" value="2" />
             </div>
 
-            <div class="rounded-xl border border-gray-200 p-3">
-              <div class="flex items-center justify-between gap-2">
-                <div>
+            <div class="rounded-xl border border-gray-200 p-3 min-w-0">
+              <div class="flex items-center justify-between gap-2 min-w-0">
+                <div class="min-w-0">
                   <p class="text-sm font-medium text-gray-900">Children</p>
                   <p class="text-xs text-gray-500">Ages 0–12</p>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-2 shrink-0">
                   <button
                     type="button"
                     id="children-minus"
                     aria-label="Fewer children"
-                    class="h-8 w-8 rounded-full border border-gray-300 text-gray-700 hover:border-ink hover:text-ink disabled:opacity-40"
+                    class="h-8 w-8 shrink-0 rounded-full border border-gray-300 text-gray-700 hover:border-ink hover:text-ink disabled:opacity-40"
                   >
                     −
                   </button>
@@ -98,7 +98,7 @@
                     type="button"
                     id="children-plus"
                     aria-label="More children"
-                    class="h-8 w-8 rounded-full border border-gray-300 text-gray-700 hover:border-ink hover:text-ink disabled:opacity-40"
+                    class="h-8 w-8 shrink-0 rounded-full border border-gray-300 text-gray-700 hover:border-ink hover:text-ink disabled:opacity-40"
                   >
                     +
                   </button>
