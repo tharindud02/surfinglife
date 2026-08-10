@@ -7,33 +7,81 @@ import foodThree from "../assets/gallery/foodthree.jpg";
 import foodFour from "../assets/gallery/foodfour.jpg";
 ---
 
-<div id="gallery-section">
+<div id="gallery-section" class="cv-auto">
   <div class="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 mt-20 md:pt-24">
     <div class="text-center">
-      <Reveal direction="up" delay={400}>
+      <Reveal direction="up" delay={80}>
         <h2 class="text-pink text-lg font-normal mb-3 tracking-widest uppercase ls-51">Our Gallery</h2>
       </Reveal>
-      <Reveal direction="up" delay={800}>
+      <Reveal direction="up" delay={140}>
         <h3 class="text-3xl lg:text-5xl font-serif font-semibold text-black">A Taste of Our World</h3>
       </Reveal>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-12 my-16 sm:space-x-6 space-y-6 md:space-y-0 px-6">
       <div class="col-span-6 flex justify-center overflow-hidden rounded-3xl">
-        <Image src={foodOne} alt="Gallery photo" width={1000} height={805} class="inner-img" />
+        <Image
+          src={foodOne}
+          alt="Restaurant dish at Surfing Life"
+          widths={[400, 600, 800]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          width={700}
+          height={560}
+          format="webp"
+          quality={70}
+          loading="lazy"
+          decoding="async"
+          class="inner-img w-full h-full object-cover"
+        />
       </div>
 
       <div class="col-span-6 flex justify-center">
         <div class="grid grid-rows-1 grid-flow-row gap-4">
           <div class="row-span-1 overflow-hidden rounded-3xl">
-            <Image src={foodTwo} alt="Gallery photo" width={700} height={405} class="inner-img" />
+            <Image
+              src={foodTwo}
+              alt="Fresh seafood plate"
+              widths={[360, 560, 700]}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              width={560}
+              height={324}
+              format="webp"
+              quality={70}
+              loading="lazy"
+              decoding="async"
+              class="inner-img w-full h-full object-cover"
+            />
           </div>
           <div class="grid grid-cols-2 gap-2">
             <div class="overflow-hidden rounded-3xl">
-              <Image src={foodThree} alt="Gallery photo" width={500} height={405} class="inner-img" />
+              <Image
+                src={foodThree}
+                alt="Signature cocktail"
+                widths={[240, 360, 480]}
+                sizes="(max-width: 768px) 50vw, 25vw"
+                width={360}
+                height={290}
+                format="webp"
+                quality={70}
+                loading="lazy"
+                decoding="async"
+                class="inner-img w-full h-full object-cover"
+              />
             </div>
             <div class="overflow-hidden rounded-3xl">
-              <Image src={foodFour} alt="Gallery photo" width={500} height={405} class="inner-img" />
+              <Image
+                src={foodFour}
+                alt="Beachside dining"
+                widths={[240, 360, 480]}
+                sizes="(max-width: 768px) 50vw, 25vw"
+                width={360}
+                height={290}
+                format="webp"
+                quality={70}
+                loading="lazy"
+                decoding="async"
+                class="inner-img w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

@@ -13,7 +13,16 @@ const socialLinks = [
   <div class="my-12 grid grid-cols-1 gap-y-10 sm:grid-cols-6 lg:grid-cols-12">
     <div class="sm:col-span-6 lg:col-span-5">
       <div class="flex flex-shrink-0 items-center">
-        <Image src={logo} alt="logo" width={56} height={56} />
+        <Image
+          src={logo}
+          alt="Surfing Life logo"
+          width={48}
+          height={48}
+          format="webp"
+          quality={70}
+          loading="lazy"
+          decoding="async"
+        />
         <a href="/" class="text-2xl font-semibold text-black ml-4">Surfing Life</a>
       </div>
       <h3 class="text-textbl text-xs font-medium mt-5 mb-4 lg:mb-16">

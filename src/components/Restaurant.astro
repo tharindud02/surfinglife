@@ -5,30 +5,47 @@ import saladImg from "../assets/cook/Salad-1.png";
 import burgerImg from "../assets/cook/burger-1.png";
 ---
 
-<div id="cook-section" class="relative">
-  <div class="absolute right-0 bottom-[-18%] hidden lg:block">
-    <Image src={burgerImg} alt="" width={463} height={622} />
+<div id="cook-section" class="relative cv-auto">
+  <div class="absolute right-0 bottom-[-18%] hidden lg:block pointer-events-none" aria-hidden="true">
+    <Image
+      src={burgerImg}
+      alt=""
+      widths={[280, 360, 460]}
+      sizes="460px"
+      width={360}
+      height={484}
+      format="webp"
+      quality={60}
+      loading="lazy"
+      decoding="async"
+    />
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 lg:items-center py-16 lg:py-20">
     <div>
       <Image
         src={saladImg}
-        alt="Restaurant dish"
-        width={636}
-        height={808}
+        alt="Signature salad at Surfing Life restaurant"
+        widths={[400, 560, 720]}
+        sizes="(max-width: 1024px) 100vw, 50vw"
+        width={560}
+        height={712}
+        format="webp"
+        quality={70}
+        loading="lazy"
+        decoding="async"
         class="w-full h-auto object-cover lg:rounded-r-[3rem]"
       />
     </div>
 
     <div class="px-6 lg:pl-12 lg:pr-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))] pt-10 lg:pt-0 flex flex-col justify-center">
-      <Reveal direction="up" delay={400}>
+      <Reveal direction="up" delay={80}>
         <h2 class="text-pink text-lg font-normal mb-3 ls-51 uppercase text-start">Two Restaurants, One Address</h2>
       </Reveal>
-      <Reveal direction="up" delay={800}>
+      <Reveal direction="up" delay={140}>
         <h3 class="text-3xl lg:text-5xl font-serif font-semibold text-black text-start">Savor the Flavors</h3>
       </Reveal>
-      <Reveal direction="up" delay={1000}>
+      <Reveal direction="up" delay={180}>
         <p class="text-grey md:text-lg font-normal mb-6 text-start mt-2">
           Dining at Surfing Life is a choice, not a compromise. Our beachfront restaurant serves relaxed, all-day
           favorites and fresh seafood in an open-air setting, while our second restaurant offers a more refined

@@ -85,7 +85,6 @@ if (
   let selectedSuggestionId = "";
   let adults = 2;
   let children = 0;
-  let contactMethod: "whatsapp" | "email" = "whatsapp";
 
   const today = new Date().toISOString().split("T")[0];
   if (checkInInput) checkInInput.min = today;
@@ -368,7 +367,6 @@ if (
   });
 
   const setContactMethod = (method: "whatsapp" | "email") => {
-    contactMethod = method;
     contactMethodInput.value = method;
 
     document.querySelectorAll<HTMLElement>(".contact-tab").forEach((tab) => {

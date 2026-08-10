@@ -1,4 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Jost:wght@300;400;500;600;700&display=swap");
+@import "@fontsource/jost/300.css";
+@import "@fontsource/jost/400.css";
+@import "@fontsource/jost/500.css";
+@import "@fontsource/jost/600.css";
+@import "@fontsource/jost/700.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,20 +22,30 @@ h3,
 }
 
 html {
-  scroll-behavior: smooth !important;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 html:not([data-scroll="0"]) .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #ffffff99;
-  background-blend-mode: overlay;
-  opacity: 1.9;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-  transition: 0.4s linear;
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
   z-index: 30;
-  backdrop-filter: blur(10px);
+}
+
+@supports (backdrop-filter: blur(8px)) {
+  html:not([data-scroll="0"]) .navbar {
+    background-color: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(8px);
+  }
 }
 
 .card-b {
@@ -109,15 +126,18 @@ html:not([data-scroll="0"]) .navbar {
 }
 
 .inner-img {
-  transition: 1s;
+  transition: transform 0.6s ease;
+  will-change: auto;
 }
 
-.inner-img:hover {
-  transform: scale(1.1);
-}
+@media (hover: hover) and (pointer: fine) {
+  .inner-img:hover {
+    transform: scale(1.06);
+  }
 
-.image-container:hover .inner-img {
-  transform: scale(1.2);
+  .image-container:hover .inner-img {
+    transform: scale(1.08);
+  }
 }
 
 .par-87 {
@@ -126,6 +146,8 @@ html:not([data-scroll="0"]) .navbar {
 
 .image-container {
   position: relative;
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
 }
 
 .image-container img {
@@ -142,7 +164,8 @@ html:not([data-scroll="0"]) .navbar {
   width: 100%;
 }
 
-.image-container:hover .image-text {
+.image-container:hover .image-text,
+.image-container:focus-within .image-text {
   opacity: 1;
 }
 
@@ -152,28 +175,30 @@ html:not([data-scroll="0"]) .navbar {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.826);
+  background-color: rgba(0, 0, 0, 0.72);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
 }
 
-.image-container:hover .image-overlay {
+.image-container:hover .image-overlay,
+.image-container:focus-within .image-overlay {
   opacity: 1;
 }
 
-/* Reveal-on-scroll (replaces react-awesome-reveal) */
+/* Reveal-on-scroll — keep above-the-fold content visible without JS */
 [data-reveal] {
   opacity: 0;
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: opacity 0.55s ease-out, transform 0.55s ease-out;
   transition-delay: var(--reveal-delay, 0ms);
 }
 
 [data-reveal="up"] {
-  transform: translateY(24px);
+  transform: translateY(16px);
 }
 
 [data-reveal="down"] {
-  transform: translateY(-24px);
+  transform: translateY(-16px);
 }
 
 [data-reveal].is-visible {
@@ -187,6 +212,18 @@ html:not([data-scroll="0"]) .navbar {
     opacity: 1;
     transform: none;
   }
+
+  .inner-img,
+  .image-text,
+  .image-overlay {
+    transition: none;
+  }
+}
+
+/* Below-fold sections: skip offscreen work until needed */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 720px;
 }
 
 /* Mobile drawer */

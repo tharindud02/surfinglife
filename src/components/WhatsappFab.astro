@@ -4,12 +4,20 @@ const message =
 ---
 
 <div class="block lg:hidden fixed bottom-2 right-0 z-50">
-  <a href={`https://wa.me/+94777401667?text=${encodeURIComponent(message)}`} target="_blank" rel="noopener noreferrer">
-    <button
-      aria-label="Chat on WhatsApp"
-      class="w-24 h-24 rounded-full bg-green-500 flex justify-center items-center hover:scale-110 transition-transform duration-150"
-    >
-      <img src="/images/Navbar/whatsapp.png" alt="WhatsApp" width="64" height="64" />
-    </button>
+  <a
+    href={`https://wa.me/+94777401667?text=${encodeURIComponent(message)}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+    class="w-16 h-16 m-3 rounded-full bg-[#25D366] flex justify-center items-center shadow-lg hover:scale-105 transition-transform duration-150"
+  >
+    <img
+      src="/images/Navbar/whatsapp.png"
+      alt=""
+      width="36"
+      height="36"
+      loading="lazy"
+      decoding="async"
+    />
   </a>
 </div>

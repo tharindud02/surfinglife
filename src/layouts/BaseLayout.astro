@@ -38,17 +38,6 @@ const ogImage = new URL("/images/Banner/banner-image-surf.png", Astro.site);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
-
-    <script>
-      // These scripts only resolve once deployed on Vercel; skip them in
-      // local dev/preview to avoid noisy 404s against /_vercel/*.
-      if (import.meta.env.PROD) {
-        const { inject } = await import("@vercel/analytics");
-        const { injectSpeedInsights } = await import("@vercel/speed-insights");
-        inject();
-        injectSpeedInsights();
-      }
-    </script>
   </head>
   <body>
     <Navbar />
@@ -59,6 +48,27 @@ const ogImage = new URL("/images/Banner/banner-image-surf.png", Astro.site);
 
     <script>
       import "../scripts/reveal";
+    </script>
+
+    <!-- Analytics: idle + production only — keep off the critical path -->
+    <script>
+      if (import.meta.env.PROD) {
+        const loadAnalytics = async () => {
+          const { inject } = await import("@vercel/analytics");
+          const { injectSpeedInsights } = await import("@vercel/speed-insights");
+          inject();
+          injectSpeedInsights();
+        };
+
+        const schedule =
+          "requestIdleCallback" in window
+            ? (cb: () => void) => window.requestIdleCallback(cb, { timeout: 4000 })
+            : (cb: () => void) => window.setTimeout(cb, 2000);
+
+        schedule(() => {
+          void loadAnalytics();
+        });
+      }
     </script>
   </body>
 </html>

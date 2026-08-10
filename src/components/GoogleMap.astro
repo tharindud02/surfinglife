@@ -1,34 +1,131 @@
 ---
+// Click-to-load map facade — avoids shipping Maps JS/CSS until the guest asks.
+const mapSrc =
+  "https://maps.google.com/maps?width=600&height=200&hl=en&q=Surfing%20Life%20Guest%20House%20Weligama&t=&z=15&ie=UTF8&iwloc=B&output=embed";
+const mapsLink =
+  "https://www.google.com/maps/search/?api=1&query=Surfing+Life+Guest+House+Weligama";
 ---
 
-<div class="mapouter">
+<div class="mapouter" id="map-facade" data-map-src={mapSrc}>
   <div class="gmap_canvas">
-    <iframe
-      title="Google Map"
-      class="gmap_iframe"
-      width="100%"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://maps.google.com/maps?width=600&height=200&hl=en&q=surfinglife&t=&z=15&ie=UTF8&iwloc=B&output=embed"
-    ></iframe>
+    <button
+      type="button"
+      id="map-load-btn"
+      class="map-facade-btn"
+      aria-label="Load interactive map"
+    >
+      <span class="map-facade-pin" aria-hidden="true"></span>
+      <span class="map-facade-copy">
+        <strong>Surfing Life · Weligama</strong>
+        <span>Tap to load map</span>
+      </span>
+    </button>
+    <a
+      href={mapsLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="map-facade-fallback"
+    >
+      Open in Google Maps
+    </a>
   </div>
 </div>
 
 <style>
   .mapouter {
     position: relative;
-    text-align: right;
     width: 100%;
     height: 200px;
   }
   .gmap_canvas {
     overflow: hidden;
-    background: none !important;
+    background: linear-gradient(145deg, #e8e0d2 0%, #d4c4a8 55%, #c4b090 100%);
     width: 100%;
     height: 200px;
+    border-radius: 1rem;
+    position: relative;
+  }
+  .map-facade-btn {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .map-facade-pin {
+    width: 18px;
+    height: 18px;
+    border-radius: 50% 50% 50% 0;
+    background: #b08d57;
+    transform: rotate(-45deg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  .map-facade-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
+  .map-facade-copy strong {
+    font-size: 0.85rem;
+    color: #2a2723;
+  }
+  .map-facade-copy span {
+    font-size: 0.75rem;
+    color: rgba(42, 39, 35, 0.7);
+  }
+  .map-facade-fallback {
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 2;
+    font-size: 0.7rem;
+    color: #2a2723;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.35rem;
+    text-decoration: underline;
   }
   .gmap_iframe {
     height: 200px !important;
+    width: 100%;
     border: 0;
+    border-radius: 1rem;
   }
 </style>
+
+<script>
+  const root = document.getElementById("map-facade");
+  const btn = document.getElementById("map-load-btn");
+  if (root && btn) {
+    const loadMap = () => {
+      const src = root.dataset.mapSrc;
+      if (!src || root.dataset.loaded === "1") return;
+      root.dataset.loaded = "1";
+      const iframe = document.createElement("iframe");
+      iframe.title = "Surfing Life Guest House on Google Maps";
+      iframe.className = "gmap_iframe";
+      iframe.width = "100%";
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "no-referrer-when-downgrade";
+      iframe.src = src;
+      const canvas = root.querySelector(".gmap_canvas");
+      if (canvas) {
+        canvas.replaceChildren(iframe);
+      }
+    };
+    btn.addEventListener("click", loadMap, { once: true });
+  }
+</script>

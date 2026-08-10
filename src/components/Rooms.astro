@@ -54,16 +54,16 @@ const roomTypes = [
 ];
 ---
 
-<div id="rooms-section" class="relative pt-16 bg-lightpink">
+<div id="rooms-section" class="relative pt-16 bg-lightpink cv-auto">
   <div class="mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 mt-20 md:pt-24 pb-20">
     <div class="text-center">
-      <Reveal direction="up" delay={400}>
+      <Reveal direction="up" delay={80}>
         <h2 class="text-pink text-lg font-normal mb-3 tracking-widest uppercase ls-51">Our Rooms</h2>
       </Reveal>
-      <Reveal direction="up" delay={800}>
+      <Reveal direction="up" delay={140}>
         <h3 class="text-3xl lg:text-5xl font-serif font-semibold text-black">A Room for Every Kind of Stay</h3>
       </Reveal>
-      <Reveal direction="up" delay={900}>
+      <Reveal direction="up" delay={180}>
         <p class="text-grey text-lg font-normal mt-5 max-w-2xl mx-auto">
           Five distinct room styles, each individually designed — from breezy fan-cooled retreats to
           air-conditioned deluxe suites.
@@ -75,8 +75,20 @@ const roomTypes = [
       {
         roomTypes.map((room) => (
           <div class="flex justify-center overflow-hidden rounded-3xl shadow-fi">
-            <div class="image-container w-full">
-              <Image src={room.image} alt={room.name} width={1000} height={805} class="inner-img object-cover w-full" />
+            <div class="image-container w-full aspect-[5/4]">
+              <Image
+                src={room.image}
+                alt={room.name}
+                widths={[400, 600, 800]}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                width={600}
+                height={480}
+                format="webp"
+                quality={70}
+                loading="lazy"
+                decoding="async"
+                class="inner-img object-cover w-full h-full"
+              />
               <div class="absolute top-4 left-4 bg-white/90 text-pink text-xs font-semibold uppercase tracking-wider px-3 py-1.5 rounded-full">
                 {room.tag}
               </div>
@@ -84,7 +96,7 @@ const roomTypes = [
               <div class="image-text text-white text-center px-6">
                 <p class="text-xs uppercase tracking-widest text-lightgold mb-2">{room.qty}</p>
                 <p class="text-2xl lg:text-3xl font-serif font-bold">{room.name}</p>
-                <p class="text-sm lg:text-base font-thin py-4">{room.description}</p>
+                <p class="text-sm lg:text-base font-light py-4">{room.description}</p>
                 <button
                   data-book-trigger
                   data-room-type={room.name}
