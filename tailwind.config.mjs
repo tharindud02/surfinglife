@@ -11,6 +11,8 @@ export default {
       grey: "#5c564e",
       lightpink: "#FAF7F0",
       pink: "#B08D57",
+      /** Accessible gold for text & solid CTAs (WCAG AA on cream/white) */
+      ink: "#6B5328",
       bgpink: "rgba(176, 141, 87, 0.12)",
       darkpink: "#F3ECDD",
       lightblack: "#2A2723",

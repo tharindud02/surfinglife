@@ -25,7 +25,7 @@ if (trigger && overlay && panel) {
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) closeDrawer();
   });
-  panel.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeDrawer);
+  panel.querySelectorAll("a, [data-book-trigger]").forEach((el) => {
+    el.addEventListener("click", closeDrawer);
   });
 }

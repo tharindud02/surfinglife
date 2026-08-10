@@ -1,12 +1,17 @@
 ---
-const mapSrc =
-  "https://maps.google.com/maps?width=600&height=200&hl=en&q=Surfing%20Life%20Guest%20House%20Weligama&t=&z=15&ie=UTF8&iwloc=B&output=embed";
+/** Lightweight OSM embed — interactive by default, no Google Maps JS (~400KB). */
+const lat = 5.9735;
+const lon = 80.4295;
+const delta = 0.012;
+const bbox = `${lon - delta}%2C${lat - delta}%2C${lon + delta}%2C${lat + delta}`;
+const mapSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lon}`;
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=Surfing%20Life%20Guest%20House%20Weligama`;
 ---
 
 <div class="mapouter">
   <div class="gmap_canvas">
     <iframe
-      title="Surfing Life Guest House on Google Maps"
+      title="Surfing Life Guest House on the map"
       class="gmap_iframe"
       width="100%"
       height="200"
@@ -16,13 +21,15 @@ const mapSrc =
       src={mapSrc}
     ></iframe>
   </div>
+  <p class="map-fallback">
+    <a href={mapsLink} target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+  </p>
 </div>
 
 <style>
   .mapouter {
     position: relative;
     width: 100%;
-    height: 200px;
   }
   .gmap_canvas {
     overflow: hidden;
@@ -37,5 +44,15 @@ const mapSrc =
     height: 200px !important;
     border: 0;
     border-radius: 1rem;
+  }
+  .map-fallback {
+    margin: 0.5rem 0 0;
+    font-size: 0.75rem;
+    text-align: right;
+  }
+  .map-fallback a {
+    color: #6b5328;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 </style>

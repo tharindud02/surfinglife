@@ -8,7 +8,6 @@ const navigation = [
   { name: "Rooms", href: "/#rooms-section" },
   { name: "Restaurants", href: "/#cook-section" },
   { name: "Gallery", href: "/#gallery-section" },
-  { name: "Events", href: "/#events-section" },
 ];
 ---
 
@@ -47,18 +46,20 @@ const navigation = [
           navigation.map((item) => (
             <a
               href={item.href}
-              class="block rounded-md px-3 py-2 text-base font-medium text-lightgrey hover:bg-lightpink hover:text-pink"
+              class="block rounded-md px-3 py-2 text-base font-medium text-lightgrey hover:bg-lightpink hover:text-ink"
             >
               {item.name}
             </a>
           ))
         }
-        <a
-          href="/#rooms-section"
-          class="block w-full mt-4 rounded-full bg-pink text-white py-3 px-6 text-base font-medium text-center hover:bg-pink/90"
+        <button
+          type="button"
+          data-book-trigger
+          data-room-type="Room"
+          class="block w-full mt-4 rounded-full bg-ink text-white py-3 px-6 text-base font-semibold text-center hover:bg-ink/90"
         >
           Book Now
-        </a>
+        </button>
       </div>
     </article>
   </section>

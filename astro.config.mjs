@@ -11,7 +11,8 @@ export default defineConfig({
   output: "static",
   integrations: [tailwind(), sitemap()],
   build: {
-    inlineStylesheets: "auto",
+    // Keep CSS out of a separate render-blocking request for this small site.
+    inlineStylesheets: "always",
   },
   prefetch: {
     prefetchAll: false,

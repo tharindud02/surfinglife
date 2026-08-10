@@ -9,7 +9,6 @@ const navigation = [
   { name: "Rooms", href: "/#rooms-section" },
   { name: "Restaurants", href: "/#cook-section" },
   { name: "Gallery", href: "/#gallery-section" },
-  { name: "Events", href: "/#events-section" },
 ];
 ---
 
@@ -18,21 +17,23 @@ const navigation = [
     <div class="navbar-row relative flex items-center overflow-visible">
       <div class="flex flex-1 items-center sm:justify-between gap-3 overflow-visible">
         <a href="/" class="navbar-logo flex flex-shrink-0 items-center gap-3 group">
-          <Image
-            src={logo}
-            alt="Surfing Life"
-            widths={[96, 128, 192]}
-            sizes="80px"
-            width={96}
-            height={96}
-            format="webp"
-            quality={90}
-            loading="eager"
-            decoding="async"
-            class="navbar-logo__img"
-          />
-          <span class="hidden sm:block self-center">
-            <span class="block text-lg sm:text-xl font-semibold text-black leading-tight group-hover:text-pink transition-colors">
+          <span class="navbar-logo__hit">
+            <Image
+              src={logo}
+              alt="Surfing Life"
+              widths={[68, 80, 136, 160]}
+              sizes="(min-width: 640px) 80px, 68px"
+              width={80}
+              height={80}
+              format="webp"
+              quality={72}
+              loading="eager"
+              decoding="async"
+              class="navbar-logo__img"
+            />
+          </span>
+          <span class="navbar-logo__text hidden sm:block self-center">
+            <span class="block text-lg sm:text-xl font-semibold text-black leading-tight group-hover:text-ink transition-colors">
               Surfing Life
             </span>
             <span class="block text-[11px] sm:text-xs font-medium text-grey leading-snug">
@@ -60,7 +61,7 @@ const navigation = [
           <button
             data-book-trigger
             data-room-type="Room"
-            class="text-sm font-medium bg-pink text-white py-2 px-5 xl:px-6 rounded-full hover:bg-pink/40 transition-all duration-300 ease-in-out"
+            class="text-sm font-semibold bg-ink text-white py-2 px-5 xl:px-6 rounded-full hover:bg-ink/85 transition-all duration-300 ease-in-out"
           >
             Book Now
           </button>
@@ -97,6 +98,15 @@ const navigation = [
     position: relative;
     z-index: 20;
     align-self: flex-start;
+    /* Hanging badge is visual-only so it doesn't steal clicks from hero CTAs */
+    pointer-events: none;
+  }
+
+  .navbar-logo__hit {
+    pointer-events: auto;
+    display: block;
+    height: 2.75rem;
+    overflow: visible;
   }
 
   .navbar-logo__img {
@@ -109,9 +119,14 @@ const navigation = [
     background-color: #ffffff;
     /* Pull bottom of badge below the thin nav strip */
     margin-bottom: -1.6rem;
+    pointer-events: none;
     box-shadow:
       0 8px 20px rgba(0, 0, 0, 0.22),
       0 0 0 3px #ffffff;
+  }
+
+  .navbar-logo__text {
+    pointer-events: auto;
   }
 
   @media (min-width: 640px) {
@@ -120,6 +135,10 @@ const navigation = [
     }
 
     .navbar-row {
+      height: 3rem;
+    }
+
+    .navbar-logo__hit {
       height: 3rem;
     }
 
